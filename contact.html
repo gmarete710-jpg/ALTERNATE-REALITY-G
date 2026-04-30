@@ -45,7 +45,11 @@
                     <div class="contact-method">
                         <h3>Email</h3>
                         <p>Primary communication channel</p>
-                        <a href="mailto:contact@gareth.ai" class="contact-link">contact@gareth.ai</a>
+                        <div class="contact-email-line">
+                            <a href="mailto:contact@gareth.ai" class="contact-link">contact@gareth.ai</a>
+                            <button type="button" id="copyEmailButton" class="copy-btn">Copy</button>
+                        </div>
+                        <p class="status-note" id="emailCopyStatus" aria-live="polite"></p>
                     </div>
 
                     <div class="contact-method">
@@ -92,6 +96,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Send Transmission</button>
+                        <p class="form-status" id="formStatus" aria-live="polite"></p>
                         <p class="form-note">Response time: 24-72 hours Earth Standard Time</p>
                     </form>
                 </div>

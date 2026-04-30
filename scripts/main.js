@@ -53,10 +53,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     addGlitchEffect();
 
+    const heroTagline = document.getElementById('heroTagline');
+    if (heroTagline) {
+        typeEffect(heroTagline, heroTagline.textContent, 40);
+    }
+
     // ============================================
     // CONTACT FORM
     // ============================================
     initContactForm();
+    initContactPrefill();
+    initCopyEmail();
+
+    // ============================================
+    // PROJECT SEARCH AND FILTER
+    // ============================================
+    initProjectSearch();
+
+    // ============================================
+    // LIVE STATISTICS ON HOMEPAGE
+    // ============================================
+    initDynamicStats();
 
     // ============================================
     // PROJECT CARDS MOUSE TRACKING
@@ -124,54 +141,6 @@ function addGlitchEffect() {
             element.style.animation = 'none';
         });
     });
-}
-
-// ============================================
-// CONTACT FORM HANDLING
-// ============================================
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Validate
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            // Create mailto link (for static site, redirect to email client)
-            const mailtoLink = `mailto:contact@gareth.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
-
-            // Show success message
-            const button = contactForm.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Message queued for transmission!';
-            button.style.background = '#00ff88';
-            button.style.color = '#0a0e27';
-
-            // Reset after 2 seconds
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = '';
-                button.style.color = '';
-                contactForm.reset();
-            }, 2000);
-
-            // Open email client
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-            }, 500);
-        });
-    }
 }
 
 // ============================================
@@ -269,21 +238,204 @@ function typeEffect(element, text, speed = 50) {
     }, speed);
 }
 
-// ============================================
-// COPY TO CLIPBOARD FOR CONTACT INFO
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const contactLinks = document.querySelectorAll('.contact-link');
+function initDynamicStats() {
+    const stardateValue = document.getElementById('stardateValue');
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
 
-    contactLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            if (link.textContent.includes('@')) {
-                // For email, don't prevent default
+    if (stardateValue) {
+        stardateValue.textContent = getStardate();
+        setInterval(() => {
+            stardateValue.textContent = getStardate();
+        }, 10000);
+    }
+
+    statNumbers.forEach(stat => {
+        const target = Number(stat.dataset.target);
+        if (isNaN(target)) return;
+
+        let start = 0;
+        const duration = 1200;
+        const stepTime = Math.max(Math.floor(duration / target), 20);
+
+        const interval = setInterval(() => {
+            start += Math.max(1, Math.floor(target / 20));
+            if (start >= target) {
+                start = target;
+                clearInterval(interval);
+            }
+            stat.textContent = target >= 1000 ? formatLargeNumber(start) : start;
+        }, stepTime);
+    });
+}
+
+function getStardate() {
+    const now = new Date();
+    const year = now.getUTCFullYear();
+    const startOfYear = Date.UTC(year, 0, 1);
+    const dayOfYear = Math.floor((now.getTime() - startOfYear) / 86400000) + 1;
+    const dayFraction = ((now.getTime() - startOfYear) % 86400000) / 86400000;
+    const stardate = `${year}.${String(dayOfYear).padStart(3, '0')}${Math.floor(dayFraction * 100)}`;
+    return stardate;
+}
+
+function formatLargeNumber(value) {
+    if (value >= 1000000) {
+        return `${(value / 1000000).toFixed(1)}M`;
+    }
+    if (value >= 1000) {
+        return `${(value / 1000).toFixed(1)}K`;
+    }
+    return value;
+}
+
+function initProjectSearch() {
+    const searchInput = document.getElementById('projectSearch');
+    const filterSelect = document.getElementById('projectFilter');
+    const countLabel = document.getElementById('filterCount');
+    const cards = document.querySelectorAll('.project-card');
+
+    if (!searchInput || !filterSelect || !countLabel || cards.length === 0) return;
+
+    const updateFilter = () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const selectedTopic = filterSelect.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const title = card.querySelector('.project-title')?.textContent.toLowerCase() || '';
+            const description = card.querySelector('.project-description')?.textContent.toLowerCase() || '';
+            const tags = Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+            const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm);
+            const matchesTopic = !selectedTopic || tags.includes(selectedTopic);
+
+            const isVisible = matchesSearch && matchesTopic;
+            card.style.display = isVisible ? 'flex' : 'none';
+            if (isVisible) visibleCount += 1;
+        });
+
+        countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} found`;
+    };
+
+    searchInput.addEventListener('input', updateFilter);
+    filterSelect.addEventListener('change', updateFilter);
+    updateFilter();
+}
+
+function initContactPrefill() {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const formStatus = document.getElementById('formStatus');
+
+    if (!nameInput || !emailInput) return;
+
+    const savedName = localStorage.getItem('garethContactName');
+    const savedEmail = localStorage.getItem('garethContactEmail');
+
+    if (savedName) {
+        nameInput.value = savedName;
+    }
+    if (savedEmail) {
+        emailInput.value = savedEmail;
+    }
+
+    if (formStatus && (savedName || savedEmail)) {
+        formStatus.textContent = 'Previous contact details loaded for faster transmission.';
+    }
+}
+
+function initCopyEmail() {
+    const copyButton = document.getElementById('copyEmailButton');
+    const statusNote = document.getElementById('emailCopyStatus');
+    const emailAddress = 'contact@gareth.ai';
+
+    if (!copyButton) return;
+
+    copyButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(emailAddress);
+            if (statusNote) {
+                statusNote.textContent = 'Email address copied to clipboard.';
+            }
+        } catch (error) {
+            if (statusNote) {
+                statusNote.textContent = 'Unable to copy automatically. Please copy manually.';
+            }
+        }
+    });
+}
+
+function initBackToTop() {
+    const button = document.createElement('button');
+    button.className = 'back-to-top';
+    button.type = 'button';
+    button.innerText = '↑ Top';
+    button.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(button);
+
+    const toggleVisibility = () => {
+        if (window.scrollY > 300) {
+            button.classList.add('visible');
+        } else {
+            button.classList.remove('visible');
+        }
+    };
+
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', toggleVisibility);
+    toggleVisibility();
+}
+
+// ============================================
+//  FORM AND CONTACT BEHAVIOR
+// ============================================
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const formStatus = document.getElementById('formStatus');
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields');
                 return;
             }
+
+            localStorage.setItem('garethContactName', name);
+            localStorage.setItem('garethContactEmail', email);
+
+            const mailtoLink = `mailto:contact@gareth.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            const button = contactForm.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Message queued for transmission!';
+            button.style.background = '#00ff88';
+            button.style.color = '#0a0e27';
+
+            if (formStatus) {
+                formStatus.textContent = 'Your message draft has been saved locally and the email client will open shortly.';
+            }
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+                button.style.color = '';
+                contactForm.reset();
+            }, 2200);
+
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 500);
         });
-    });
-});
+    }
+}
 
 console.log('🚀 GARETH.AI Neural Systems Online');
 console.log('📡 Awaiting transmissions from across the cosmos...');

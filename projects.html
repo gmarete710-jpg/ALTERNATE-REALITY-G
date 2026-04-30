@@ -34,6 +34,39 @@
         <p>Exploring the cosmos through machine learning and data science.</p>
     </section>
 
+    <!-- Projects Filter -->
+    <section class="container">
+        <div class="project-filter-bar">
+            <div class="filter-group">
+                <label for="projectSearch">Search projects</label>
+                <input type="search" id="projectSearch" placeholder="Search by title, description or tech tag">
+            </div>
+            <div class="filter-group">
+                <label for="projectFilter">Filter by topic</label>
+                <select id="projectFilter">
+                    <option value="">All topics</option>
+                    <option value="PyTorch">PyTorch</option>
+                    <option value="CNN">CNN</option>
+                    <option value="Astronomy">Astronomy</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="TensorFlow">TensorFlow</option>
+                    <option value="Transformers">Transformers</option>
+                    <option value="Time Series">Time Series</option>
+                    <option value="Forecasting">Forecasting</option>
+                    <option value="VAE">VAE</option>
+                    <option value="Anomaly Detection">Anomaly Detection</option>
+                    <option value="Reinforcement Learning">Reinforcement Learning</option>
+                    <option value="GAN">GAN</option>
+                    <option value="GNN">GNN</option>
+                    <option value="Optimization">Optimization</option>
+                </select>
+            </div>
+            <div class="filter-summary">
+                <span id="filterCount">6 projects</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Grid -->
     <main class="container">
         <div class="projects-grid">
@@ -126,7 +159,7 @@
                         <circle cx="160" cy="130" r="20" fill="none" stroke="#ff006e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
                         <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">ANOMALY DETECT</text>
                     </svg>
-                    <p class="image-placeholder">Replace with: Radiation spectrum graph or anomaly cluster visualization</p>
+                    <div class="image-placeholder">Replace with: Anomaly detection visualization or VAE latent space representation</div>
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Cosmic Radiation Anomaly Detector</h3>
@@ -165,7 +198,7 @@
                         <rect x="140" y="165" width="20" height="20" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.9"/>
                         <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NAV SYSTEM</text>
                     </svg>
-                    <p class="image-placeholder">Replace with: Asteroid field trajectory visualization or mission map</p>
+                    <div class="image-placeholder">Replace with: Asteroid field trajectory visualization or mission map</div>
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Autonomous Navigation AI</h3>

@@ -874,6 +874,114 @@ body::before {
     transform: translateX(5px);
 }
 
+.project-filter-bar {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: end;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    background: rgba(10, 14, 39, 0.85);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: rgba(22, 33, 62, 0.9);
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--glow-sm);
+}
+
+.filter-summary {
+    text-align: right;
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+}
+
+.contact-email-line {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.copy-btn {
+    appearance: none;
+    border: 1px solid var(--primary-color);
+    background: rgba(0, 255, 136, 0.12);
+    color: var(--primary-color);
+    padding: 0.5rem 0.85rem;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-primary);
+}
+
+.status-note,
+.form-status {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: none;
+    border-radius: 999px;
+    background: rgba(0, 255, 136, 0.95);
+    color: var(--bg-primary);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--glow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 50;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-6px);
+}
+
 /* ============================================
    CONTACT SECTION
    ============================================ */
@@ -1215,6 +1323,15 @@ body::before {
     .btn {
         width: 100%;
         text-align: center;
+    }
+
+    .project-filter-bar {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .filter-summary {
+        text-align: left;
     }
 
     .projects-grid {
