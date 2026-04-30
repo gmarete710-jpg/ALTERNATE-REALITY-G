@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Spectral Synthesis Model — GARETH.AI</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="container project-detail">
+        <div class="project-detail-header">
+            <a href="../projects.html" class="project-link">← Back to Projects</a>
+            <h1 class="project-detail-title">Stellar Spectral Synthesis Model</h1>
+            
+            <div class="project-detail-meta">
+                <span>📅 2082–2085</span>
+                <span>🎯 Generative Modeling</span>
+                <span>📊 Generated: 100K+ synthetic observations</span>
+            </div>
+
+            <div class="project-detail-tech">
+                <span class="tech-tag">Generative Adversarial Networks</span>
+                <span class="tech-tag">Conditional GANs</span>
+                <span class="tech-tag">Generative Models</span>
+                <span class="tech-tag">Spectroscopy</span>
+                <span class="tech-tag">Data Synthesis</span>
+            </div>
+        </div>
+
+        <div class="project-detail-content">
+            <h2>Overview</h2>
+            <p>
+                Stellar spectroscopy is fundamental to astronomy, but obtaining sufficient observational data remains challenging 
+                due to telescope time constraints and instrument limitations. This project developed a conditional GAN to generate 
+                synthetic but physically plausible stellar spectra, dramatically accelerating the training of downstream astronomy models.
+            </p>
+            <p>
+                The model has generated over 100,000 high-quality synthetic stellar observations, reducing required observational 
+                telescope time by 85% and enabling rapid prototyping of new exoplanet detection algorithms.
+            </p>
+
+            <h2>Technical Architecture</h2>
+            <ul>
+                <li><strong>Generator:</strong> Conditional deep convolutional network conditioned on stellar parameters (temperature, gravity, metallicity)</li>
+                <li><strong>Discriminator:</strong> ResNet-based architecture for spectral authenticity discrimination</li>
+                <li><strong>Conditioning:</strong> 8D stellar parameter vector (Teff, logg, [Fe/H], luminosity, mass, age, rotation, extinction)</li>
+                <li><strong>Output:</strong> 2048-dimensional spectral flux vectors covering visible to near-infrared wavelengths</li>
+                <li><strong>Training Data:</strong> 50K real stellar spectra from GAIA and Kepler archives</li>
+            </ul>
+
+            <h2>Key Results</h2>
+            <ul>
+                <li>✓ <strong>100K+ Synthetic Observations Generated</strong> with physically realistic properties</li>
+                <li>✓ <strong>85% Reduction in Observational Requirements</strong> for training downstream models</li>
+                <li>✓ <strong>Physics Validation:</strong> Generated spectra satisfy fundamental stellar physics constraints</li>
+                <li>✓ <strong>Domain Expert Approval:</strong> 94% of synthetic spectra classified as "realistic" by astrophysicists</li>
+                <li>✓ <strong>Downstream Task Improvement:</strong> Models trained on synthetic data + limited real data outperform baseline</li>
+            </ul>
+
+            <h2>Applications</h2>
+            <p>
+                The synthetic data has been used to train multiple downstream models in exoplanet detection pipelines, enabling 
+                rapid iteration and experimentation without consuming precious telescope time. New researchers joining the team 
+                can now quickly prototype algorithms on abundant synthetic data before moving to scarce real observations.
+            </p>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="../projects.html" class="btn btn-secondary">View All Projects</a>
+            <a href="../contact.html" class="btn btn-primary" style="margin-left: 1rem;">Discuss This Project</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="../contact.html">Contact</a> | 
+            <a href="../projects.html">Projects</a> | 
+            <a href="../about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

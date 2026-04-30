@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Flare Prediction System — GARETH.AI</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="container project-detail">
+        <div class="project-detail-header">
+            <a href="../projects.html" class="project-link">← Back to Projects</a>
+            <h1 class="project-detail-title">Solar Flare Prediction System</h1>
+            
+            <div class="project-detail-meta">
+                <span>📅 2085–2088</span>
+                <span>🎯 Time Series Forecasting</span>
+                <span>📊 Dataset: 15 years solar activity</span>
+            </div>
+
+            <div class="project-detail-tech">
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Transformer Networks</span>
+                <span class="tech-tag">Time Series</span>
+                <span class="tech-tag">Forecasting</span>
+                <span class="tech-tag">Physics-Informed ML</span>
+                <span class="tech-tag">Early Warning Systems</span>
+            </div>
+        </div>
+
+        <div class="project-detail-content">
+            <h2>Overview</h2>
+            <p>
+                Solar flares pose a critical risk to deep-space operations, communications systems, and astronaut safety. 
+                This project developed a transformer-based time series forecasting model capable of predicting solar flare 
+                events up to 72 hours in advance with 91% recall on dangerous X-class flares.
+            </p>
+            <p>
+                The system was deployed to the Jupiter Station Complex early warning network and has successfully prevented 
+                12 critical operational incidents through predictive alerts, enabling proactive mission planning and crew 
+                protection protocols.
+            </p>
+
+            <h2>Technical Architecture</h2>
+            <p>
+                The system employs a multi-modal transformer architecture that processes magnetogram data, solar wind measurements, 
+                and coronal mass ejection parameters:
+            </p>
+            <ul>
+                <li><strong>Input Modalities:</strong> Solar magnetic field images (512×512), 10-minute cadence magnetometer readings, solar wind particle flux measurements</li>
+                <li><strong>Temporal Encoder:</strong> Transformer with multi-head attention operating on 72-hour historical windows (432 timesteps × 10min)</li>
+                <li><strong>Spatial-Temporal Fusion:</strong> Hybrid CNN-Transformer for processing 2D magnetogram images alongside 1D time series</li>
+                <li><strong>Prediction Head:</strong> Multi-task learning for both flare occurrence probability and magnitude estimation</li>
+                <li><strong>Uncertainty Quantification:</strong> Bayesian neural networks provide confidence intervals for predictions</li>
+            </ul>
+
+            <h2>Key Results</h2>
+            <ul>
+                <li>✓ <strong>91% Recall on X-Class Flares</strong> (most dangerous category, >72h horizon)</li>
+                <li>✓ <strong>73% Precision</strong> (acceptable false positive rate for operational planning)</li>
+                <li>✓ <strong>72-Hour Lead Time</strong> for operational decision-making</li>
+                <li>✓ <strong>12 Incidents Prevented</strong> through proactive crew evacuation and system hardening</li>
+                <li>✓ <strong>Real-Time Processing:</strong> 500ms latency from satellite data ingestion to alert generation</li>
+                <li>✓ <strong>99.2% Uptime</strong> across 3-year operational deployment</li>
+            </ul>
+
+            <h2>Operational Impact</h2>
+            <p>
+                The predictive capability has transformed solar flare response protocols from reactive (post-event damage mitigation) 
+                to proactive (pre-event prevention). Mission planners now use 72-hour forecasts to:
+            </p>
+            <ul>
+                <li>Schedule spacewalks during predicted low-flare-risk windows</li>
+                <li>Activate enhanced radiation shielding on vulnerable satellites</li>
+                <li>Reroute communications through backup infrastructure</li>
+                <li>Position astronauts in safer spacecraft compartments during high-risk periods</li>
+            </ul>
+
+            <h2>Model Calibration & Validation</h2>
+            <p>
+                The model was trained on 15 years of solar activity data (approximately 4,500 flare events) using 
+                both historical archives and real-time satellite feeds. Validation employed temporal cross-validation 
+                to prevent data leakage, testing on 2 complete solar cycles held entirely separate from training.
+            </p>
+            <p>
+                Continuous retraining occurs monthly with new solar observations, allowing the model to adapt to 
+                variations across the solar cycle and sensor degradation.
+            </p>
+
+            <h2>Challenges Overcome</h2>
+            <p>
+                <strong>Challenge 1: Class Imbalance at Extreme Magnitudes</strong> — Dangerous X-class flares are rare 
+                (only ~200 events in 15-year dataset), making them difficult to predict with standard training approaches.
+            </p>
+            <p>
+                <strong>Solution:</strong> Applied stratified sampling, cost-weighted loss functions, and synthetic data 
+                augmentation using physics-informed generative models. Implemented focal loss to focus training on hard negatives.
+            </p>
+            <p>
+                <strong>Challenge 2: Concept Drift Across Solar Cycles</strong> — Solar activity patterns vary significantly 
+                between solar minimum and maximum phases.
+            </p>
+            <p>
+                <strong>Solution:</strong> Built adaptive normalization layers sensitive to solar cycle phase. Implemented 
+                continual learning framework that gradually updates model weights with new data while preventing catastrophic forgetting.
+            </p>
+
+            <h2>Future Enhancements</h2>
+            <ul>
+                <li>Extend prediction horizon to 7 days using ensemble methods</li>
+                <li>Incorporate helioseismic data for early precursor detection</li>
+                <li>Deploy on edge computing devices for distributed prediction</li>
+                <li>Develop interpretability tools for astrophysicist understanding of model decisions</li>
+            </ul>
+
+            <h2>Publications</h2>
+            <ul>
+                <li>GARETH, et al. "Transformer-Based Solar Flare Forecasting with 72-Hour Lead Time" 
+                    <em>Space Weather Prediction Journal</em>, 2088</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="../projects.html" class="btn btn-secondary">View All Projects</a>
+            <a href="../contact.html" class="btn btn-primary" style="margin-left: 1rem;">Discuss This Project</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="../contact.html">Contact</a> | 
+            <a href="../projects.html">Projects</a> | 
+            <a href="../about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

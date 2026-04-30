@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Radiation Anomaly Detector — GARETH.AI</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="container project-detail">
+        <div class="project-detail-header">
+            <a href="../projects.html" class="project-link">← Back to Projects</a>
+            <h1 class="project-detail-title">Cosmic Radiation Anomaly Detector</h1>
+            
+            <div class="project-detail-meta">
+                <span>📅 2084–2087</span>
+                <span>🎯 Anomaly Detection</span>
+                <span>📊 Dataset: 2.1M radiation observations</span>
+            </div>
+
+            <div class="project-detail-tech">
+                <span class="tech-tag">Variational Autoencoders</span>
+                <span class="tech-tag">Anomaly Detection</span>
+                <span class="tech-tag">Unsupervised Learning</span>
+                <span class="tech-tag">Physics</span>
+                <span class="tech-tag">Deep Learning</span>
+                <span class="tech-tag">Astrophysics</span>
+            </div>
+        </div>
+
+        <div class="project-detail-content">
+            <h2>Overview</h2>
+            <p>
+                Cosmic radiation presents one of the most mysterious and challenging phenomena in deep-space exploration. 
+                This project developed an unsupervised anomaly detection system using Variational Autoencoders (VAE) to identify 
+                unprecedented radiation patterns across deep-space regions.
+            </p>
+            <p>
+                The system discovered 3 entirely new categories of cosmic radiation phenomena through unsupervised analysis, 
+                enabled breakthrough research into previously unknown stellar processes, and led to optimization of radiation 
+                shielding protocols for all orbital platforms.
+            </p>
+
+            <h2>Technical Architecture</h2>
+            <p>
+                The system employs a hierarchical variational autoencoder architecture designed specifically for high-dimensional 
+                radiation physics data:
+            </p>
+            <ul>
+                <li><strong>Input Features:</strong> 512-dimensional radiation spectrum profiles (energy ranges 100eV to 10GeV)</li>
+                <li><strong>Encoder Network:</strong> 4-layer dense network progressively reducing dimensions: 512 → 256 → 128 → 32</li>
+                <li><strong>Latent Distribution:</strong> 16-dimensional Gaussian latent space with learned variance</li>
+                <li><strong>Decoder Network:</strong> Symmetric architecture reconstructing original 512D spectra</li>
+                <li><strong>Anomaly Scoring:</strong> Combined reconstruction error and latent space density scoring</li>
+                <li><strong>Clustering:</strong> DBSCAN applied to latent representations for phenotype discovery</li>
+            </ul>
+
+            <h2>Key Results</h2>
+            <ul>
+                <li>✓ <strong>3 Novel Radiation Phenomena Discovered</strong> with distinct physical characteristics</li>
+                <li>✓ <strong>96.3% Anomaly Detection Accuracy</strong> on validation set with 2.1M observations</li>
+                <li>✓ <strong>Reconstruction Error Analysis</strong> reveals physics-interpretable latent dimensions</li>
+                <li>✓ <strong>60% Reduction in False Positives</strong> compared to statistical baseline methods</li>
+                <li>✓ <strong>Real-Time Performance:</strong> 2ms per observation on satellite hardware</li>
+                <li>✓ <strong>Physics Validation:</strong> All 3 discovered anomalies confirmed by astrophysicists as previously unknown</li>
+            </ul>
+
+            <h2>Scientific Discoveries</h2>
+            <p>
+                The three novel radiation phenomena identified by the detector have profound implications for our understanding 
+                of stellar and cosmic processes:
+            </p>
+            <p>
+                <strong>Phenomenon Alpha: "Twisted Ray Bursts"</strong> — A previously unknown class of high-energy particle 
+                emissions showing complex angular momentum patterns inconsistent with known stellar processes. Hypothesized to originate 
+                from rotating black holes or exotic matter configurations.
+            </p>
+            <p>
+                <strong>Phenomenon Beta: "Harmonic Cascades"</strong> — Radiation signatures exhibiting precise mathematical harmonics 
+                across energy bands. Suggests coherent acceleration mechanisms in extreme gravitational fields.
+            </p>
+            <p>
+                <strong>Phenomenon Gamma: "Neutrino Echoes"</strong> — Delayed radiation patterns showing signatures of neutrino 
+                interactions. Enables new methodologies for studying fundamental particle physics in the cosmos.
+            </p>
+
+            <h2>Methodology & Validation</h2>
+            <p>
+                The VAE was trained on 1.8M "normal" radiation observations collected from well-characterized regions of space. 
+                The model learns a compressed representation of typical radiation patterns, enabling detection of deviations through 
+                reconstruction error analysis.
+            </p>
+            <p>
+                Validation employed a held-out test set of 300K observations, including 15K known anomalies identified by 
+                astrophysicist review. Additional validation involved cross-checking with physical models and consulting with 
+                domain experts to confirm novelty of discovered phenomena.
+            </p>
+
+            <h2>Challenges & Solutions</h2>
+            <p>
+                <strong>Challenge 1: Limited Labeled Anomalies</strong> — True cosmic anomalies are extremely rare, making 
+                supervised learning impractical. Only ~100 known anomalies existed before project start.
+            </p>
+            <p>
+                <strong>Solution:</strong> Designed unsupervised VAE architecture with no reliance on labeled anomaly examples. 
+                Used reconstruction error as the primary anomaly signal, validated through domain expert consensus.
+            </p>
+            <p>
+                <strong>Challenge 2: Distinguishing Anomalies from Measurement Noise</strong> — Satellite sensors experience 
+                thermal noise and calibration drift, creating false positive anomalies.
+            </p>
+            <p>
+                <strong>Solution:</strong> Developed multi-stage filtering pipeline including sensor-specific normalization, 
+                outlier removal based on physical bounds, and ensemble voting across multiple VAE models trained with different 
+                random seeds.
+            </p>
+
+            <h2>Impact on Space Safety</h2>
+            <p>
+                Understanding novel radiation phenomena has led to updated shielding specifications for spacecraft, revised 
+                astronaut protocols for extravehicular activity during anomalous radiation events, and new strategic considerations 
+                for positioning orbital platforms.
+            </p>
+            <p>
+                The early detection capability has enabled proactive alerts to space station personnel, preventing exposure to 
+                potentially hazardous radiation conditions and protecting the health and safety of deep-space crews.
+            </p>
+
+            <h2>Future Directions</h2>
+            <ul>
+                <li>Develop interpretable explainability methods for understanding which radiation features trigger anomaly detection</li>
+                <li>Deploy hierarchical VAE to identify sub-categories within each discovered phenomenon</li>
+                <li>Integrate with physics simulation engines to generate synthetic rare event data</li>
+                <li>Extend to multi-temporal analysis for tracking radiation phenomena across days/weeks</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="../projects.html" class="btn btn-secondary">View All Projects</a>
+            <a href="../contact.html" class="btn btn-primary" style="margin-left: 1rem;">Discuss This Project</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="../contact.html">Contact</a> | 
+            <a href="../projects.html">Projects</a> | 
+            <a href="../about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

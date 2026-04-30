@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — GARETH.AI</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Featured Projects</h1>
+        <p>Exploring the cosmos through machine learning and data science.</p>
+    </section>
+
+    <!-- Projects Grid -->
+    <main class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Exoplanet Discovery visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <circle cx="150" cy="100" r="40" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.8"/>
+                        <circle cx="150" cy="100" r="35" fill="none" stroke="#0080ff" stroke-width="1" opacity="0.5"/>
+                        <circle cx="100" cy="60" r="12" fill="#ff006e" opacity="0.7"/>
+                        <circle cx="180" cy="140" r="15" fill="#00ff88" opacity="0.6"/>
+                        <circle cx="120" cy="140" r="10" fill="#0080ff" opacity="0.5"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">EXOPLANET NET</text>
+                    </svg>
+                    <p class="image-placeholder">Replace with: Neural network architecture diagram or exoplanet dataset visualization</p>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Exoplanet Discovery Network</h3>
+                    <span class="project-year">2087–2089</span>
+                </div>
+                <p class="project-description">
+                    Deep neural network system for classifying exoplanet characteristics from spectroscopic data. 
+                    Discovered 7 previously unknown exoplanet classes through unsupervised clustering and 
+                    achieved 99.8% classification accuracy on known stellar phenomena.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">CNN</span>
+                    <span class="tech-tag">Astronomy</span>
+                    <span class="tech-tag">Data Science</span>
+                </div>
+                <a href="projects/exoplanet-discovery.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Solar flare prediction visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <defs>
+                            <radialGradient id="flare" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" style="stop-color:#ff006e;stop-opacity:0.9" />
+                                <stop offset="100%" style="stop-color:#ff006e;stop-opacity:0.1" />
+                            </radialGradient>
+                        </defs>
+                        <circle cx="150" cy="80" r="50" fill="url(#flare)"/>
+                        <circle cx="150" cy="80" r="40" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.8"/>
+                        <line x1="50" y1="150" x2="250" y2="150" stroke="#00ff88" stroke-width="2" opacity="0.5"/>
+                        <polyline points="60,140 90,130 120,145 150,120 180,135 210,125 240,140" fill="none" stroke="#0080ff" stroke-width="2" opacity="0.7"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#ff006e" font-size="12" font-family="Space Mono">SOLAR PREDICTION</text>
+                    </svg>
+                    <div class="image-placeholder">Replace with: Time series forecast graph or model architecture visualizatio</div>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Solar Flare Prediction System</h3>
+                    <span class="project-year">2085–2088</span>
+                </div>
+                <p class="project-description">
+                    Transformer-based time series forecasting model for predicting solar flare events 72 hours 
+                    in advance. Integrated with Jupiter Station early warning system, preventing 12 critical 
+                    operational incidents with real-time alert deployment.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">Time Series</span>
+                    <span class="tech-tag">Forecasting</span>
+                </div>
+                <a href="projects/solar-flare-prediction.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Radiation anomaly detection visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <g opacity="0.6">
+                            <circle cx="100" cy="100" r="8" fill="#00ff88"/>
+                            <circle cx="150" cy="70" r="6" fill="#00ff88"/>
+                            <circle cx="200" cy="110" r="7" fill="#00ff88"/>
+                            <circle cx="120" cy="140" r="5" fill="#00ff88"/>
+                            <circle cx="180" cy="150" r="8" fill="#00ff88"/>
+                            <circle cx="160" cy="130" r="6" fill="#ff006e"/>
+                        </g>
+                        <polyline points="100,100 150,70 200,110 120,140" fill="none" stroke="#0080ff" stroke-width="1.5" opacity="0.7"/>
+                        <circle cx="160" cy="130" r="20" fill="none" stroke="#ff006e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">ANOMALY DETECT</text>
+                    </svg>
+                    <p class="image-placeholder">Replace with: Radiation spectrum graph or anomaly cluster visualization</p>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Cosmic Radiation Anomaly Detector</h3>
+                    <span class="project-year">2084–2087</span>
+                </div>
+                <p class="project-description">
+                    Unsupervised anomaly detection system using variational autoencoders (VAE) for identifying 
+                    unprecedented cosmic radiation patterns in deep space. Enabled discovery of 3 rare stellar 
+                    phenomena and optimized radiation shielding protocols across orbital platforms.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">VAE</span>
+                    <span class="tech-tag">Anomaly Detection</span>
+                    <span class="tech-tag">Physics</span>
+                    <span class="tech-tag">Unsupervised Learning</span>
+                </div>
+                <a href="projects/radiation-anomaly.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Autonomous navigation visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <!-- Spacecraft -->
+                        <polygon points="150,30 155,45 145,45" fill="#00ff88"/>
+                        <!-- Asteroids -->
+                        <circle cx="80" cy="80" r="10" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
+                        <circle cx="220" cy="100" r="12" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
+                        <circle cx="120" cy="140" r="8" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
+                        <circle cx="200" cy="150" r="11" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
+                        <!-- Navigation path -->
+                        <polyline points="150,30 140,70 130,100 140,140 150,170" fill="none" stroke="#0080ff" stroke-width="2" opacity="0.8" stroke-dasharray="3,3"/>
+                        <!-- Target -->
+                        <rect x="140" y="165" width="20" height="20" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.9"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NAV SYSTEM</text>
+                    </svg>
+                    <p class="image-placeholder">Replace with: Asteroid field trajectory visualization or mission map</p>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Autonomous Navigation AI</h3>
+                    <span class="project-year">2083–2086</span>
+                </div>
+                <p class="project-description">
+                    Reinforcement learning agent for spacecraft autonomous navigation in complex asteroid fields. 
+                    Trained on 10M+ simulated trajectories, deployed to 8 deep-space probes with 99.5% safe 
+                    navigation success rate and 40% fuel efficiency improvement.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Reinforcement Learning</span>
+                    <span class="tech-tag">Navigation</span>
+                    <span class="tech-tag">Optimization</span>
+                    <span class="tech-tag">Deep-Q Learning</span>
+                </div>
+                <a href="projects/autonomous-nav.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Spectral synthesis visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <!-- Spectrum bars -->
+                        <rect x="30" y="140" width="15" height="40" fill="#ff006e" opacity="0.7"/>
+                        <rect x="55" y="120" width="15" height="60" fill="#ff006e" opacity="0.8"/>
+                        <rect x="80" y="100" width="15" height="80" fill="#00ff88" opacity="0.7"/>
+                        <rect x="105" y="90" width="15" height="90" fill="#0080ff" opacity="0.8"/>
+                        <rect x="130" y="110" width="15" height="70" fill="#0080ff" opacity="0.7"/>
+                        <rect x="155" y="130" width="15" height="50" fill="#00ff88" opacity="0.8"/>
+                        <rect x="180" y="120" width="15" height="60" fill="#ff006e" opacity="0.7"/>
+                        <rect x="205" y="150" width="15" height="30" fill="#ff006e" opacity="0.8"/>
+                        <rect x="230" y="160" width="15" height="20" fill="#00ff88" opacity="0.7"/>
+                        <!-- Star -->
+                        <circle cx="150" cy="40" r="8" fill="#ffff00" opacity="0.9"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">SPECTRAL DATA</text>
+                    </svg>
+                    <p class="image-placeholder">Replace with: Stellar spectrum graph or GAN-generated spectra samples</p>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Stellar Spectral Synthesis Model</h3>
+                    <span class="project-year">2082–2085</span>
+                </div>
+                <p class="project-description">
+                    Generative model for synthesizing stellar spectra using conditional GANs. Enables simulation 
+                    of 100,000+ synthetic stellar observations for training downstream astronomy models, reducing 
+                    observational data collection time by 85%.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">GAN</span>
+                    <span class="tech-tag">Generative Models</span>
+                    <span class="tech-tag">Spectroscopy</span>
+                    <span class="tech-tag">Synthetic Data</span>
+                </div>
+                <a href="projects/spectral-synthesis.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                        <!-- Network communication visualization -->
+                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
+                        <!-- Nodes -->
+                        <circle cx="75" cy="60" r="8" fill="#00ff88"/>
+                        <circle cx="225" cy="60" r="8" fill="#00ff88"/>
+                        <circle cx="75" cy="140" r="8" fill="#00ff88"/>
+                        <circle cx="225" cy="140" r="8" fill="#00ff88"/>
+                        <circle cx="150" cy="100" r="10" fill="#0080ff"/>
+                        <!-- Connections -->
+                        <line x1="75" y1="60" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+                        <line x1="225" y1="60" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+                        <line x1="75" y1="140" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+                        <line x1="225" y1="140" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
+                        <line x1="75" y1="60" x2="225" y2="60" stroke="#ff006e" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                        <line x1="75" y1="140" x2="225" y2="140" stroke="#ff006e" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
+                        <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NETWORK OPT</text>
+                    </svg>
+                    <p class="image-placeholder">Replace with: Network topology diagram or communication flow chart</p>
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Neural Communication Protocol Optimizer</h3>
+                    <span class="project-year">2081–2084</span>
+                </div>
+                <p class="project-description">
+                    Machine learning system for optimizing data transmission protocols between distributed space 
+                    stations. Achieved 60% reduction in bandwidth overhead and 45% latency improvement for 
+                    inter-planetary communications using graph neural networks.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">GNN</span>
+                    <span class="tech-tag">Networking</span>
+                    <span class="tech-tag">Optimization</span>
+                    <span class="tech-tag">Systems</span>
+                </div>
+                <a href="projects/comm-protocol.html" class="project-link">View Project →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="contact.html">Contact</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

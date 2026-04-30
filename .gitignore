@@ -1,0 +1,30 @@
+# Build artifacts
+dist/
+build/
+*.min.js
+*.min.css
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Cache
+.cache/
+.parcel-cache/
+
+# OS
+Thumbs.db

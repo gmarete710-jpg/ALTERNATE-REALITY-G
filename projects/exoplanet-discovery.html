@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanet Discovery Network — GARETH.AI</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="container project-detail">
+        <div class="project-detail-header">
+            <a href="../projects.html" class="project-link">← Back to Projects</a>
+            <h1 class="project-detail-title">Exoplanet Discovery Network</h1>
+            
+            <div class="project-detail-meta">
+                <span>📅 2087–2089</span>
+                <span>🎯 Classification & Discovery</span>
+                <span>📊 Dataset: 500K+ stellar observations</span>
+            </div>
+
+            <div class="project-detail-tech">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Convolutional Neural Networks</span>
+                <span class="tech-tag">Astronomy</span>
+                <span class="tech-tag">Deep Learning</span>
+                <span class="tech-tag">Unsupervised Learning</span>
+                <span class="tech-tag">Clustering</span>
+            </div>
+        </div>
+
+        <div class="project-detail-content">
+            <h2>Overview</h2>
+            <p>
+                The Exoplanet Discovery Network represents a breakthrough in automated stellar classification. 
+                This deep neural network system was designed to analyze spectroscopic data from deep-space observation 
+                satellites and classify exoplanets according to their characteristics—including atmospheric composition, 
+                orbital parameters, and habitability metrics.
+            </p>
+            <p>
+                Over a 2-year deployment period, the system processed over 500,000 stellar observations and successfully 
+                identified 7 previously unknown exoplanet classes through advanced unsupervised clustering techniques. 
+                The model achieved 99.8% classification accuracy on known stellar phenomena, exceeding previous benchmarks 
+                by 12 percentage points.
+            </p>
+
+            <h2>Technical Architecture</h2>
+            <p>
+                The network employs a hybrid deep learning architecture combining convolutional neural networks (CNNs) 
+                for feature extraction with unsupervised clustering algorithms for novel class discovery:
+            </p>
+            <ul>
+                <li><strong>Input Layer:</strong> Spectroscopic data preprocessed into 2048-dimensional embeddings</li>
+                <li><strong>Feature Extraction:</strong> Multi-scale 1D convolutions across spectral bands</li>
+                <li><strong>Representation Learning:</strong> Variational Autoencoder (VAE) for dimensionality reduction to 128D latent space</li>
+                <li><strong>Clustering:</strong> HDBSCAN applied to latent space for discovery of novel exoplanet classes</li>
+                <li><strong>Classification:</strong> Supervised fine-tuning on discovered classes with transfer learning</li>
+            </ul>
+
+            <h2>Key Results</h2>
+            <ul>
+                <li>✓ <strong>99.8% Classification Accuracy</strong> on 47 known exoplanet types</li>
+                <li>✓ <strong>7 New Exoplanet Classes Discovered</strong> through unsupervised analysis</li>
+                <li>✓ <strong>Inference Speed:</strong> 50ms per observation (real-time deployment capable)</li>
+                <li>✓ <strong>Model Size:</strong> 45MB (optimized for edge deployment on space stations)</li>
+                <li>✓ <strong>Data Efficiency:</strong> Achieved target accuracy with only 15K labeled examples</li>
+            </ul>
+
+            <h2>Scientific Impact</h2>
+            <p>
+                The discovery of 7 new exoplanet classes has prompted a significant revision to our understanding of 
+                planetary formation mechanisms in different stellar environments. Three of the newly discovered classes 
+                exist in habitable zones around sun-like stars, opening new targets for future deep-space exploration missions.
+            </p>
+            <p>
+                The network's ability to automatically identify patterns in spectroscopic data has reduced the manual 
+                analysis workload for the Jupiter Station research team by 80%, allowing researchers to focus on interpretation 
+                and hypothesis generation rather than data processing.
+            </p>
+
+            <h2>Challenges & Solutions</h2>
+            <p>
+                <strong>Challenge 1: Class Imbalance</strong> — The training dataset contained severe class imbalance, with 
+                common exoplanet types representing 85% of observations while rare types were scarce.
+            </p>
+            <p>
+                <strong>Solution:</strong> Implemented weighted sampling and oversampling techniques for rare classes. 
+                Used focal loss function during training to reduce model bias toward common classes.
+            </p>
+            <p>
+                <strong>Challenge 2: Transfer Learning Across Observation Modalities</strong> — Different space stations 
+                use different spectroscopic instruments, introducing domain shift in the input data.
+            </p>
+            <p>
+                <strong>Solution:</strong> Deployed domain adaptation techniques including adversarial training and 
+                instrument-specific normalization layers to generalize across hardware platforms.
+            </p>
+
+            <h2>Future Directions</h2>
+            <ul>
+                <li>Expand to multi-modal data fusion (combining spectroscopy with gravitational microlensing data)</li>
+                <li>Deploy real-time inference pipeline on all major deep-space observation platforms</li>
+                <li>Develop interpretability tools for astrophysicist collaboration</li>
+                <li>Incorporate reinforcement learning to guide future observation scheduling</li>
+            </ul>
+
+            <h2>Publications & Presentations</h2>
+            <ul>
+                <li>GARETH, et al. "Neural Discovery of Exoplanet Classes via Unsupervised Spectral Analysis" 
+                    <em>Journal of Deep-Space Astronomy</em>, 2089</li>
+                <li>Presented at the International Astrophysics AI Summit, Saturn Station, 2088</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="../projects.html" class="btn btn-secondary">View All Projects</a>
+            <a href="../contact.html" class="btn btn-primary" style="margin-left: 1rem;">Discuss This Project</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="../contact.html">Contact</a> | 
+            <a href="../projects.html">Projects</a> | 
+            <a href="../about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

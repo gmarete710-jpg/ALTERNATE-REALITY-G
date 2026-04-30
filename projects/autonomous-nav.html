@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Navigation AI — GARETH.AI</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../projects.html" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="container project-detail">
+        <div class="project-detail-header">
+            <a href="../projects.html" class="project-link">← Back to Projects</a>
+            <h1 class="project-detail-title">Autonomous Navigation AI</h1>
+            
+            <div class="project-detail-meta">
+                <span>📅 2083–2086</span>
+                <span>🎯 Reinforcement Learning</span>
+                <span>📊 Training: 10M+ simulated trajectories</span>
+            </div>
+
+            <div class="project-detail-tech">
+                <span class="tech-tag">Reinforcement Learning</span>
+                <span class="tech-tag">Deep-Q Networks</span>
+                <span class="tech-tag">Navigation</span>
+                <span class="tech-tag">Optimization</span>
+                <span class="tech-tag">Robotics</span>
+            </div>
+        </div>
+
+        <div class="project-detail-content">
+            <h2>Overview</h2>
+            <p>
+                Autonomous spacecraft navigation in complex asteroid fields remains one of the most challenging problems in 
+                deep-space exploration. This reinforcement learning agent was trained to navigate safely through dense asteroid 
+                environments while optimizing for fuel efficiency and mission completion time.
+            </p>
+            <p>
+                The agent was deployed to 8 autonomous deep-space probes and has achieved a 99.5% safe navigation success rate 
+                across over 2,000 completed missions, while improving fuel efficiency by 40% compared to pre-programmed navigation algorithms.
+            </p>
+
+            <h2>Technical Architecture</h2>
+            <ul>
+                <li><strong>RL Algorithm:</strong> Deep Deterministic Policy Gradient (DDPG) with prioritized experience replay</li>
+                <li><strong>State Space:</strong> 128-dimensional vector encoding: asteroid positions (50), velocities (50), spacecraft state (20), goal information (8)</li>
+                <li><strong>Action Space:</strong> Continuous 6D thrust vector (x, y, z acceleration and rotation rates)</li>
+                <li><strong>Training Environment:</strong> Physics-accurate simulation with 10M+ procedurally generated asteroid fields</li>
+                <li><strong>Reward Structure:</strong> Multi-objective: goal reach (+100), fuel efficiency (-0.01/unit fuel), collision avoidance (-1000)</li>
+            </ul>
+
+            <h2>Key Results</h2>
+            <ul>
+                <li>✓ <strong>99.5% Safe Navigation Success Rate</strong> across 2,000+ real-world missions</li>
+                <li>✓ <strong>40% Fuel Efficiency Improvement</strong> vs. traditional algorithms</li>
+                <li>✓ <strong>Training Time:</strong> Converged in 5M timesteps (approximately 10 days on 8 GPUs)</li>
+                <li>✓ <strong>Generalization:</strong> Agent trained on small asteroids generalizes to large/irregular ones</li>
+                <li>✓ <strong>Inference Speed:</strong> 50ms decision latency enabling real-time onboard execution</li>
+            </ul>
+
+            <h2>Future Enhancements</h2>
+            <ul>
+                <li>Multi-agent coordination for fleet-level navigation</li>
+                <li>Transfer learning to new spacecraft platforms</li>
+                <li>Integration with classical control systems for hybrid approaches</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="../projects.html" class="btn btn-secondary">View All Projects</a>
+            <a href="../contact.html" class="btn btn-primary" style="margin-left: 1rem;">Discuss This Project</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="../contact.html">Contact</a> | 
+            <a href="../projects.html">Projects</a> | 
+            <a href="../about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
