@@ -267,15 +267,18 @@ function initContactPreview() {
 // ============================================
 function initProjectsFeatured() {
     const featuredSection = document.getElementById('featuredProject');
+    const featuredImage = document.getElementById('featuredImage');
     const featuredTitle = document.getElementById('featuredTitle');
     const featuredYear = document.getElementById('featuredYear');
     const featuredDescription = document.getElementById('featuredDescription');
     const featuredTags = document.getElementById('featuredTags');
     const featuredLink = document.getElementById('featuredLink');
     const cycleButton = document.getElementById('cycleFeaturedButton');
+    const sortButton = document.getElementById('sortButton');
     const cards = document.querySelectorAll('.project-card');
+    const grid = document.querySelector('.projects-grid');
 
-    if (!featuredSection || cards.length === 0) return;
+    if (!featuredSection || !grid || cards.length === 0) return;
 
     const projects = Array.from(cards).map(card => ({
         title: card.querySelector('.project-title')?.textContent || 'Unknown Project',
@@ -283,10 +286,12 @@ function initProjectsFeatured() {
         description: card.querySelector('.project-description')?.textContent || '',
         tags: Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent),
         url: card.querySelector('.project-link')?.getAttribute('href') || '#',
+        cover: card.dataset.cover || card.querySelector('img.project-cover')?.src || '',
         element: card
     }));
 
     let currentIndex = 0;
+    let sortAscending = false;
 
     const updateFeatured = (index) => {
         const project = projects[index];
@@ -296,6 +301,10 @@ function initProjectsFeatured() {
         if (featuredYear) featuredYear.textContent = project.year;
         if (featuredDescription) featuredDescription.textContent = project.description;
         if (featuredLink) featuredLink.setAttribute('href', project.url);
+        if (featuredImage && project.cover) {
+            featuredImage.src = project.cover;
+            featuredImage.alt = `${project.title} cover image`;
+        }
         if (featuredTags) {
             featuredTags.innerHTML = project.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join(' ');
         }
@@ -307,9 +316,36 @@ function initProjectsFeatured() {
         currentIndex = index;
     };
 
+    const sortProjectsByYear = (ascending) => {
+        const sorted = [...projects].sort((a, b) => {
+            const yearA = parseInt(a.year.slice(0, 4), 10) || 0;
+            const yearB = parseInt(b.year.slice(0, 4), 10) || 0;
+            return ascending ? yearA - yearB : yearB - yearA;
+        });
+
+        sorted.forEach(project => {
+            grid.appendChild(project.element);
+        });
+    };
+
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            updateFeatured(index);
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
     if (cycleButton) {
         cycleButton.addEventListener('click', () => {
             updateFeatured((currentIndex + 1) % projects.length);
+        });
+    }
+
+    if (sortButton) {
+        sortButton.addEventListener('click', () => {
+            sortAscending = !sortAscending;
+            sortProjectsByYear(sortAscending);
+            sortButton.textContent = sortAscending ? 'Sort by Year ↑' : 'Sort by Year ↓';
         });
     }
 
@@ -503,6 +539,7 @@ function initProjectSearch() {
     const searchInput = document.getElementById('projectSearch');
     const filterSelect = document.getElementById('projectFilter');
     const countLabel = document.getElementById('filterCount');
+    const resetButton = document.getElementById('resetFilterButton');
     const cards = document.querySelectorAll('.project-card');
 
     if (!searchInput || !filterSelect || !countLabel || cards.length === 0) return;
@@ -527,8 +564,17 @@ function initProjectSearch() {
         countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} found`;
     };
 
+    const resetFilters = () => {
+        searchInput.value = '';
+        filterSelect.value = '';
+        updateFilter();
+    };
+
     searchInput.addEventListener('input', updateFilter);
     filterSelect.addEventListener('change', updateFilter);
+    if (resetButton) {
+        resetButton.addEventListener('click', resetFilters);
+    }
     updateFilter();
 }
 

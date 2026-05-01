@@ -40,6 +40,9 @@
 
     <section class="featured-project container" id="featuredProject">
         <div class="featured-banner">
+            <div class="featured-preview">
+                <img id="featuredImage" src="images/cover-exoplanet.svg" alt="Featured project cover image">
+            </div>
             <div class="featured-summary">
                 <span class="section-title">Featured Mission</span>
                 <h2 id="featuredTitle">Neural Communication Protocol Optimizer</h2>
@@ -84,6 +87,10 @@
             <div class="filter-summary">
                 <span id="filterCount">6 projects</span>
             </div>
+            <div class="filter-actions">
+                <button id="sortButton" class="btn btn-secondary">Sort by Year ↓</button>
+                <button id="resetFilterButton" class="btn btn-secondary">Reset Filters</button>
+            </div>
         </div>
     </section>
 
@@ -91,19 +98,9 @@
     <main class="container">
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2087" data-cover="images/cover-exoplanet.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Exoplanet Discovery visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <circle cx="150" cy="100" r="40" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.8"/>
-                        <circle cx="150" cy="100" r="35" fill="none" stroke="#0080ff" stroke-width="1" opacity="0.5"/>
-                        <circle cx="100" cy="60" r="12" fill="#ff006e" opacity="0.7"/>
-                        <circle cx="180" cy="140" r="15" fill="#00ff88" opacity="0.6"/>
-                        <circle cx="120" cy="140" r="10" fill="#0080ff" opacity="0.5"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">EXOPLANET NET</text>
-                    </svg>
-                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-exoplanet.svg" class="project-cover" alt="Exoplanet Discovery Network cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Exoplanet Discovery Network</h3>
@@ -124,24 +121,9 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2085" data-cover="images/cover-solar-flare.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Solar flare prediction visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <defs>
-                            <radialGradient id="flare" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" style="stop-color:#ff006e;stop-opacity:0.9" />
-                                <stop offset="100%" style="stop-color:#ff006e;stop-opacity:0.1" />
-                            </radialGradient>
-                        </defs>
-                        <circle cx="150" cy="80" r="50" fill="url(#flare)"/>
-                        <circle cx="150" cy="80" r="40" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.8"/>
-                        <line x1="50" y1="150" x2="250" y2="150" stroke="#00ff88" stroke-width="2" opacity="0.5"/>
-                        <polyline points="60,140 90,130 120,145 150,120 180,135 210,125 240,140" fill="none" stroke="#0080ff" stroke-width="2" opacity="0.7"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#ff006e" font-size="12" font-family="Space Mono">SOLAR PREDICTION</text>
-                    </svg>
-                    <img src="FUTURE 3.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-solar-flare.svg" class="project-cover" alt="Solar Flare Prediction System cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Solar Flare Prediction System</h3>
@@ -162,24 +144,9 @@
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2084" data-cover="images/cover-radiation-anomaly.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Radiation anomaly detection visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <g opacity="0.6">
-                            <circle cx="100" cy="100" r="8" fill="#00ff88"/>
-                            <circle cx="150" cy="70" r="6" fill="#00ff88"/>
-                            <circle cx="200" cy="110" r="7" fill="#00ff88"/>
-                            <circle cx="120" cy="140" r="5" fill="#00ff88"/>
-                            <circle cx="180" cy="150" r="8" fill="#00ff88"/>
-                            <circle cx="160" cy="130" r="6" fill="#ff006e"/>
-                        </g>
-                        <polyline points="100,100 150,70 200,110 120,140" fill="none" stroke="#0080ff" stroke-width="1.5" opacity="0.7"/>
-                        <circle cx="160" cy="130" r="20" fill="none" stroke="#ff006e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">ANOMALY DETECT</text>
-                    </svg>
-                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-radiation-anomaly.svg" class="project-cover" alt="Cosmic Radiation Anomaly Detector cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Cosmic Radiation Anomaly Detector</h3>
@@ -200,25 +167,9 @@
             </div>
 
             <!-- Project 4 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2083" data-cover="images/cover-autonomous-nav.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Autonomous navigation visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <!-- Spacecraft -->
-                        <polygon points="150,30 155,45 145,45" fill="#00ff88"/>
-                        <!-- Asteroids -->
-                        <circle cx="80" cy="80" r="10" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
-                        <circle cx="220" cy="100" r="12" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
-                        <circle cx="120" cy="140" r="8" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
-                        <circle cx="200" cy="150" r="11" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.7"/>
-                        <!-- Navigation path -->
-                        <polyline points="150,30 140,70 130,100 140,140 150,170" fill="none" stroke="#0080ff" stroke-width="2" opacity="0.8" stroke-dasharray="3,3"/>
-                        <!-- Target -->
-                        <rect x="140" y="165" width="20" height="20" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.9"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NAV SYSTEM</text>
-                    </svg>
-                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-autonomous-nav.svg" class="project-cover" alt="Autonomous Navigation AI cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Autonomous Navigation AI</h3>
@@ -239,26 +190,9 @@
             </div>
 
             <!-- Project 5 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2082" data-cover="images/cover-spectral-synthesis.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Spectral synthesis visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <!-- Spectrum bars -->
-                        <rect x="30" y="140" width="15" height="40" fill="#ff006e" opacity="0.7"/>
-                        <rect x="55" y="120" width="15" height="60" fill="#ff006e" opacity="0.8"/>
-                        <rect x="80" y="100" width="15" height="80" fill="#00ff88" opacity="0.7"/>
-                        <rect x="105" y="90" width="15" height="90" fill="#0080ff" opacity="0.8"/>
-                        <rect x="130" y="110" width="15" height="70" fill="#0080ff" opacity="0.7"/>
-                        <rect x="155" y="130" width="15" height="50" fill="#00ff88" opacity="0.8"/>
-                        <rect x="180" y="120" width="15" height="60" fill="#ff006e" opacity="0.7"/>
-                        <rect x="205" y="150" width="15" height="30" fill="#ff006e" opacity="0.8"/>
-                        <rect x="230" y="160" width="15" height="20" fill="#00ff88" opacity="0.7"/>
-                        <!-- Star -->
-                        <circle cx="150" cy="40" r="8" fill="#ffff00" opacity="0.9"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">SPECTRAL DATA</text>
-                    </svg>
-                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-spectral-synthesis.svg" class="project-cover" alt="Stellar Spectral Synthesis Model cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Stellar Spectral Synthesis Model</h3>
@@ -279,27 +213,9 @@
             </div>
 
             <!-- Project 6 -->
-            <div class="project-card">
+            <div class="project-card" data-year="2081" data-cover="images/cover-comm-protocol.svg">
                 <div class="project-image">
-                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="project-svg">
-                        <!-- Network communication visualization -->
-                        <rect width="300" height="200" fill="rgba(10, 14, 39, 0.6)"/>
-                        <!-- Nodes -->
-                        <circle cx="75" cy="60" r="8" fill="#00ff88"/>
-                        <circle cx="225" cy="60" r="8" fill="#00ff88"/>
-                        <circle cx="75" cy="140" r="8" fill="#00ff88"/>
-                        <circle cx="225" cy="140" r="8" fill="#00ff88"/>
-                        <circle cx="150" cy="100" r="10" fill="#0080ff"/>
-                        <!-- Connections -->
-                        <line x1="75" y1="60" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
-                        <line x1="225" y1="60" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
-                        <line x1="75" y1="140" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
-                        <line x1="225" y1="140" x2="150" y2="100" stroke="#00ff88" stroke-width="1.5" opacity="0.7"/>
-                        <line x1="75" y1="60" x2="225" y2="60" stroke="#ff006e" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
-                        <line x1="75" y1="140" x2="225" y2="140" stroke="#ff006e" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
-                        <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NETWORK OPT</text>
-                    </svg>
-                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
+                    <img src="images/cover-comm-protocol.svg" class="project-cover" alt="Neural Communication Protocol Optimizer cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Neural Communication Protocol Optimizer</h3>
