@@ -140,25 +140,61 @@ function updateActiveNavLink() {
 // ============================================
 // THEME TOGGLE
 // ============================================
+const availableThemes = ['dark', 'light', 'cyberpunk', 'solar'];
+const themeLabels = {
+    dark: 'Dark',
+    light: 'Light',
+    cyberpunk: 'Cyberpunk',
+    solar: 'Solar'
+};
+
 function initThemeToggle() {
     const button = document.getElementById('themeToggle');
     if (!button) return;
 
-    const savedTheme = localStorage.getItem('garethTheme') || 'dark';
-    applyTheme(savedTheme, button);
+    const savedTheme = localStorage.getItem('garethTheme');
+    const initialTheme = availableThemes.includes(savedTheme) ? savedTheme : 'dark';
+    applyTheme(initialTheme, button);
 
-    button.addEventListener('click', () => {
-        const newTheme = document.body.classList.contains('theme-light') ? 'dark' : 'light';
-        applyTheme(newTheme, button);
+    button.addEventListener('click', () => cycleTheme(button));
+
+    button.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        cycleTheme(button, true);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        const targetTag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : '';
+        if (targetTag === 'input' || targetTag === 'textarea' || event.target.isContentEditable) {
+            return;
+        }
+
+        if (event.key.toLowerCase() === 't' && !event.ctrlKey && !event.metaKey && !event.altKey) {
+            event.preventDefault();
+            cycleTheme(button);
+        }
     });
 }
 
+function cycleTheme(button, reverse = false) {
+    const currentTheme = button.dataset.theme || localStorage.getItem('garethTheme') || 'dark';
+    const currentIndex = availableThemes.indexOf(currentTheme);
+    const nextIndex = (currentIndex + (reverse ? -1 : 1) + availableThemes.length) % availableThemes.length;
+    applyTheme(availableThemes[nextIndex], button);
+}
+
 function applyTheme(theme, button) {
-    document.body.classList.remove('theme-dark', 'theme-light');
-    document.body.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
+    document.body.classList.remove(...availableThemes.map(t => `theme-${t}`));
+    document.body.classList.add(`theme-${theme}`);
+
     if (button) {
-        button.textContent = theme === 'light' ? 'Light' : 'Dark';
+        const label = themeLabels[theme] || themeLabels.dark;
+        button.textContent = `Theme: ${label}`;
+        button.dataset.theme = theme;
+        button.setAttribute('aria-label', `Current theme: ${label}. Click to cycle themes, right-click to reverse.`);
+        button.setAttribute('title', 'Click to cycle themes. Right-click to reverse. Press T to cycle.');
     }
+
     localStorage.setItem('garethTheme', theme);
 }
 

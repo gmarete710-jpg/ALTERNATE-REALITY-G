@@ -38,6 +38,17 @@
     --glow-intense: 0 0 48px var(--primary-color);
 }
 
+body.theme-dark {
+    --primary-color: #00ff88;
+    --secondary-color: #ff006e;
+    --accent-color: #0080ff;
+    --bg-primary: #0a0e27;
+    --bg-secondary: #16213e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #00ff8844;
+}
+
 body.theme-light {
     --primary-color: #0f62fe;
     --secondary-color: #ff5c8a;
@@ -47,6 +58,28 @@ body.theme-light {
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --border-color: rgba(15, 98, 254, 0.2);
+}
+
+body.theme-cyberpunk {
+    --primary-color: #ff00ff;
+    --secondary-color: #00ffff;
+    --accent-color: #ffb300;
+    --bg-primary: #12001a;
+    --bg-secondary: #21002c;
+    --text-primary: #f8f8ff;
+    --text-secondary: #d3c3ff;
+    --border-color: rgba(255, 0, 255, 0.24);
+}
+
+body.theme-solar {
+    --primary-color: #ffba08;
+    --secondary-color: #fb5607;
+    --accent-color: #8338ec;
+    --bg-primary: #0d1b2a;
+    --bg-secondary: #1b263b;
+    --text-primary: #f8f1f1;
+    --text-secondary: #b0a8b9;
+    --border-color: rgba(255, 186, 8, 0.2);
 }
 
 /* ============================================
@@ -68,6 +101,7 @@ body {
     font-family: var(--font-secondary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Grid Background Pattern */
