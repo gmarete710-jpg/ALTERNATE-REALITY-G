@@ -59,6 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
+    // THEME TOGGLE
+    // ============================================
+    initThemeToggle();
+
+    // ============================================
+    // HOME PAGE DASHBOARD
+    // ============================================
+    initHomeDashboard();
+
+    // ============================================
+    // ABOUT PAGE INTERACTIONS
+    // ============================================
+    initAboutInteractions();
+
+    // ============================================
+    // CONTACT PAGE PREVIEW
+    // ============================================
+    initContactPreview();
+
+    // ============================================
     // CONTACT FORM
     // ============================================
     initContactForm();
@@ -71,9 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectSearch();
 
     // ============================================
+    // PROJECT FEATURED SELECTION
+    // ============================================
+    initProjectsFeatured();
+
+    // ============================================
     // LIVE STATISTICS ON HOMEPAGE
     // ============================================
     initDynamicStats();
+
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+    initBackToTop();
 
     // ============================================
     // PROJECT CARDS MOUSE TRACKING
@@ -90,22 +120,203 @@ document.addEventListener('DOMContentLoaded', () => {
 // UPDATE ACTIVE NAV LINK BASED ON PAGE
 // ============================================
 function updateActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop();
+    const normalizedPage = currentPage === '' ? 'index.html' : currentPage;
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        if (
+            href === normalizedPage ||
+            (normalizedPage === 'index.html' && href === 'home.html') ||
+            (normalizedPage === 'home.html' && href === 'index.html')
+        ) {
             link.classList.add('active');
         }
     });
 }
 
 // ============================================
-// INTERSECTION OBSERVER FOR SCROLL ANIMATIONS
+// THEME TOGGLE
 // ============================================
-function observeElements() {
+function initThemeToggle() {
+    const button = document.getElementById('themeToggle');
+    if (!button) return;
+
+    const savedTheme = localStorage.getItem('garethTheme') || 'dark';
+    applyTheme(savedTheme, button);
+
+    button.addEventListener('click', () => {
+        const newTheme = document.body.classList.contains('theme-light') ? 'dark' : 'light';
+        applyTheme(newTheme, button);
+    });
+}
+
+function applyTheme(theme, button) {
+    document.body.classList.remove('theme-dark', 'theme-light');
+    document.body.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
+    if (button) {
+        button.textContent = theme === 'light' ? 'Light' : 'Dark';
+    }
+    localStorage.setItem('garethTheme', theme);
+}
+
+// ============================================
+// HOME PAGE DASHBOARD
+// ============================================
+function initHomeDashboard() {
+    const statusButton = document.getElementById('statusCycleButton');
+    const missionStatus = document.getElementById('missionStatus');
+    const launchCountdown = document.getElementById('launchCountdown');
+    const activeProtocol = document.getElementById('activeProtocol');
+
+    if (!missionStatus && !launchCountdown && !activeProtocol) return;
+
+    const statuses = ['Orbiting', 'Analyzing', 'Syncing', 'Hyperlight'];
+    const protocols = ['Neural Synthesis', 'Quantum Inference', 'Astral Mapping', 'Signal Optimization'];
+    let currentIndex = 0;
+
+    const setMissionState = (index) => {
+        currentIndex = index;
+        if (missionStatus) missionStatus.textContent = statuses[index];
+        if (activeProtocol) activeProtocol.textContent = protocols[index];
+    };
+
+    const updateCountdown = () => {
+        if (!launchCountdown) return;
+        const nextLaunch = new Date(Date.UTC(2089, 7, 30, 12, 0, 0));
+        const now = new Date();
+        const diff = nextLaunch - now;
+
+        if (diff <= 0) {
+            launchCountdown.textContent = 'Launch underway';
+            return;
+        }
+
+        const days = Math.floor(diff / 86400000);
+        const hours = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+        const minutes = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+        const seconds = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+
+        launchCountdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    if (statusButton) {
+        statusButton.addEventListener('click', () => {
+            setMissionState((currentIndex + 1) % statuses.length);
+        });
+    }
+
+    setMissionState(currentIndex);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// ============================================
+// ABOUT PAGE INTERACTIONS
+// ============================================
+function initAboutInteractions() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    if (timelineItems.length === 0) return;
+
+    timelineItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            timelineItems.forEach(el => el.classList.remove('active'));
+            item.classList.add('active');
+        });
+
+        if (index === 0) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// ============================================
+// CONTACT PAGE LIVE PREVIEW
+// ============================================
+function initContactPreview() {
+    const preview = document.getElementById('contactPreview');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+
+    if (!preview || !nameInput || !emailInput || !subjectInput || !messageInput) return;
+
+    const renderPreview = () => {
+        preview.innerHTML = `
+            <h3>Draft Preview</h3>
+            <p><strong>From:</strong> ${nameInput.value || 'Anonymous'}</p>
+            <p><strong>Email:</strong> ${emailInput.value || 'no-email@domain.com'}</p>
+            <p><strong>Subject:</strong> ${subjectInput.value || 'No subject yet'}</p>
+            <p>${messageInput.value ? messageInput.value : 'Your message preview will appear here as you type.'}</p>
+        `;
+    };
+
+    [nameInput, emailInput, subjectInput, messageInput].forEach(input => {
+        input.addEventListener('input', renderPreview);
+    });
+
+    renderPreview();
+}
+
+// ============================================
+// PROJECTS FEATURED SELECTION
+// ============================================
+function initProjectsFeatured() {
+    const featuredSection = document.getElementById('featuredProject');
+    const featuredTitle = document.getElementById('featuredTitle');
+    const featuredYear = document.getElementById('featuredYear');
+    const featuredDescription = document.getElementById('featuredDescription');
+    const featuredTags = document.getElementById('featuredTags');
+    const featuredLink = document.getElementById('featuredLink');
+    const cycleButton = document.getElementById('cycleFeaturedButton');
+    const cards = document.querySelectorAll('.project-card');
+
+    if (!featuredSection || cards.length === 0) return;
+
+    const projects = Array.from(cards).map(card => ({
+        title: card.querySelector('.project-title')?.textContent || 'Unknown Project',
+        year: card.querySelector('.project-year')?.textContent || '',
+        description: card.querySelector('.project-description')?.textContent || '',
+        tags: Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent),
+        url: card.querySelector('.project-link')?.getAttribute('href') || '#',
+        element: card
+    }));
+
+    let currentIndex = 0;
+
+    const updateFeatured = (index) => {
+        const project = projects[index];
+        if (!project) return;
+
+        if (featuredTitle) featuredTitle.textContent = project.title;
+        if (featuredYear) featuredYear.textContent = project.year;
+        if (featuredDescription) featuredDescription.textContent = project.description;
+        if (featuredLink) featuredLink.setAttribute('href', project.url);
+        if (featuredTags) {
+            featuredTags.innerHTML = project.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join(' ');
+        }
+
+        projects.forEach((projectItem, itemIndex) => {
+            projectItem.element.classList.toggle('featured', itemIndex === index);
+        });
+
+        currentIndex = index;
+    };
+
+    if (cycleButton) {
+        cycleButton.addEventListener('click', () => {
+            updateFeatured((currentIndex + 1) % projects.length);
+        });
+    }
+
+    updateFeatured(currentIndex);
+}
+
+function initDynamicStats() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'

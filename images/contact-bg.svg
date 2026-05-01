@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="400" fill="#081133" />
+  <path d="M 80 290 C 360 200 540 370 930 230" fill="none" stroke="#00ff88" stroke-width="3" opacity="0.15" />
+  <path d="M 80 180 C 320 90 620 270 930 130" fill="none" stroke="#ff006e" stroke-width="3" opacity="0.16" />
+  <circle cx="180" cy="220" r="20" fill="#00ff88" opacity="0.25" />
+  <circle cx="820" cy="140" r="18" fill="#ff006e" opacity="0.24" />
+  <text x="500" y="220" text-anchor="middle" fill="#00ff88" font-family="Space Mono" font-size="42">COMMS ARRAY</text>
+</svg>

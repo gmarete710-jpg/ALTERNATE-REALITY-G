@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#081027"/>
+  <g opacity="0.8">
+    <rect x="120" y="320" width="30" height="160" fill="#ff006e"/>
+    <rect x="170" y="300" width="30" height="180" fill="#00ff88"/>
+    <rect x="220" y="260" width="30" height="220" fill="#0080ff"/>
+    <rect x="270" y="340" width="30" height="140" fill="#ff006e"/>
+    <rect x="320" y="280" width="30" height="200" fill="#00ff88"/>
+    <rect x="370" y="320" width="30" height="160" fill="#0080ff"/>
+    <rect x="420" y="340" width="30" height="140" fill="#ff006e"/>
+    <rect x="470" y="360" width="30" height="120" fill="#00ff88"/>
+  </g>
+  <circle cx="620" cy="180" r="40" fill="#ff006e" opacity="0.7"/>
+  <circle cx="620" cy="180" r="24" fill="#00ff88"/>
+  <text x="400" y="560" text-anchor="middle" fill="#00ff88" font-family="Space Mono" font-size="40">SPECTRAL SYNTHESIS</text>
+</svg>

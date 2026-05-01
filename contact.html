@@ -10,7 +10,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="home.html" class="nav-logo">
                 <span class="logo-symbol">&lt;</span>
                 <span class="logo-text">GARETH.AI</span>
                 <span class="logo-symbol">/&gt;</span>
@@ -21,15 +21,18 @@
                 <span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Dark</button>
         </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
+        <img src="images/contact-bg.svg" alt="Communication network background" class="page-bg-image">
         <h1>Get in Touch</h1>
         <p>Transmitting across the cosmic network...</p>
     </section>
@@ -98,6 +101,10 @@
                         <button type="submit" class="btn btn-primary">Send Transmission</button>
                         <p class="form-status" id="formStatus" aria-live="polite"></p>
                         <p class="form-note">Response time: 24-72 hours Earth Standard Time</p>
+                        <div class="contact-preview" id="contactPreview">
+                            <h3>Draft Preview</h3>
+                            <p>Your message preview will appear here as you type.</p>
+                        </div>
                     </form>
                 </div>
             </div>

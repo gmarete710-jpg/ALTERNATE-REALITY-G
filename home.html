@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — GARETH.AI</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="theme-dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="home.html" class="nav-logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">GARETH.AI</span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Dark</button>
+        </div>
+    </nav>
+
+    <section class="hero home-hero">
+        <video src="Video Project 4 FUTUERE.mp4" alt="Futuristic mission control illustration" class="hero-bg-image" autoplay muted loop>
+        </video>
+        <div class="hero-content hero-content-home">
+            <h1 class="hero-title glitch" data-text="GARETH.AI">GARETH.AI</h1>
+            <p class="hero-subtitle">Home Base of the Alternate-Reality AI Engineer</p>
+            <p class="hero-tagline" id="heroTagline">Welcome to the neural command center of future space research.</p>
+            <div class="hero-cta">
+                <a href="projects.html" class="btn btn-primary">See Core Missions</a>
+                <a href="about.html" class="btn btn-secondary">Meet the Engineer</a>
+            </div>
+            <div class="home-metrics">
+                <div class="metric-card">
+                    <span>Operational Status</span>
+                    <strong id="missionStatus">Orbiting</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Next Launch</span>
+                    <strong id="launchCountdown">00:00:00</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Active Protocol</span>
+                    <strong id="activeProtocol">Neural Synthesis</strong>
+                </div>
+            </div>
+            <button id="statusCycleButton" class="btn btn-secondary btn-small">Cycle Status</button>
+        </div>
+    </section>
+
+    <section class="container home-highlight">
+        <h2 class="section-title">Mission Control Dashboard</h2>
+        <p class="section-description">Every page on this portfolio has independent controls, plus a shared theme switcher, so the site feels like a living AI command center.</p>
+        <div class="home-dashboard-grid">
+            <article class="dashboard-card">
+                <h3>Command Center</h3>
+                <p>Home page shows live mission status, countdown, and the current neural protocol.</p>
+            </article>
+            <article class="dashboard-card">
+                <h3>Project Operations</h3>
+                <p>Projects page includes search, filters, and dynamic featured project selection.</p>
+            </article>
+            <article class="dashboard-card">
+                <h3>Data Archive</h3>
+                <p>About page shows a background image and an interactive mission timeline.</p>
+            </article>
+            <article class="dashboard-card">
+                <h3>Comms Network</h3>
+                <p>Contact page includes clipboard copy, email preview, and user persistence.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="home.html">Home</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="400" fill="#08142c" />
+  <circle cx="150" cy="120" r="90" fill="#00ff88" opacity="0.12" />
+  <circle cx="850" cy="100" r="70" fill="#ff006e" opacity="0.16" />
+  <path d="M 50 300 C 300 180 550 420 950 250" fill="none" stroke="#0080ff" stroke-width="4" opacity="0.35" stroke-dasharray="12 8" />
+  <text x="500" y="230" text-anchor="middle" fill="#00ff88" font-family="Space Mono" font-size="42">GALACTIC RESUME</text>
+</svg>

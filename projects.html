@@ -10,7 +10,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="home.html" class="nav-logo">
                 <span class="logo-symbol">&lt;</span>
                 <span class="logo-text">GARETH.AI</span>
                 <span class="logo-symbol">/&gt;</span>
@@ -21,17 +21,37 @@
                 <span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="projects.html" class="nav-link active">Projects</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Dark</button>
         </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
+        <video src="hyperspace.mp4" alt="Project overview background" class="page-bg-image" autoplay muted loop>
+        </video>
         <h1>Featured Projects</h1>
         <p>Exploring the cosmos through machine learning and data science.</p>
+    </section>
+
+    <section class="featured-project container" id="featuredProject">
+        <div class="featured-banner">
+            <div class="featured-summary">
+                <span class="section-title">Featured Mission</span>
+                <h2 id="featuredTitle">Neural Communication Protocol Optimizer</h2>
+                <span id="featuredYear" class="featured-year">2081–2084</span>
+                <p id="featuredDescription">Explore the mission profile and adaptive systems powering interplanetary communications with high efficiency.</p>
+                <div id="featuredTags" class="featured-tags"></div>
+            </div>
+            <div class="featured-actions">
+                <a id="featuredLink" class="project-link" href="#">Explore →</a>
+                <button id="cycleFeaturedButton" class="btn btn-secondary">Cycle Featured</button>
+            </div>
+        </div>
     </section>
 
     <!-- Projects Filter -->
@@ -83,7 +103,7 @@
                         <circle cx="120" cy="140" r="10" fill="#0080ff" opacity="0.5"/>
                         <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">EXOPLANET NET</text>
                     </svg>
-                    <p class="image-placeholder">Replace with: Neural network architecture diagram or exoplanet dataset visualization</p>
+                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Exoplanet Discovery Network</h3>
@@ -121,7 +141,7 @@
                         <polyline points="60,140 90,130 120,145 150,120 180,135 210,125 240,140" fill="none" stroke="#0080ff" stroke-width="2" opacity="0.7"/>
                         <text x="150" y="190" text-anchor="middle" fill="#ff006e" font-size="12" font-family="Space Mono">SOLAR PREDICTION</text>
                     </svg>
-                    <div class="image-placeholder">Replace with: Time series forecast graph or model architecture visualization</div>
+                    <img src="FUTURE 3.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Solar Flare Prediction System</h3>
@@ -159,7 +179,7 @@
                         <circle cx="160" cy="130" r="20" fill="none" stroke="#ff006e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
                         <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">ANOMALY DETECT</text>
                     </svg>
-                    <div class="image-placeholder">Replace with: Anomaly detection visualization or VAE latent space representation</div>
+                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Cosmic Radiation Anomaly Detector</h3>
@@ -198,7 +218,7 @@
                         <rect x="140" y="165" width="20" height="20" fill="none" stroke="#00ff88" stroke-width="2" opacity="0.9"/>
                         <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NAV SYSTEM</text>
                     </svg>
-                    <div class="image-placeholder">Replace with: Asteroid field trajectory visualization or mission map</div>
+                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Autonomous Navigation AI</h3>
@@ -238,7 +258,7 @@
                         <circle cx="150" cy="40" r="8" fill="#ffff00" opacity="0.9"/>
                         <text x="150" y="190" text-anchor="middle" fill="#00ff88" font-size="12" font-family="Space Mono">SPECTRAL DATA</text>
                     </svg>
-                    <p class="image-placeholder">Replace with: Stellar spectrum graph or GAN-generated spectra samples</p>
+                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Stellar Spectral Synthesis Model</h3>
@@ -279,7 +299,7 @@
                         <line x1="75" y1="140" x2="225" y2="140" stroke="#ff006e" stroke-width="1" opacity="0.5" stroke-dasharray="3,2"/>
                         <text x="150" y="190" text-anchor="middle" fill="#0080ff" font-size="12" font-family="Space Mono">NETWORK OPT</text>
                     </svg>
-                    <p class="image-placeholder">Replace with: Network topology diagram or communication flow chart</p>
+                    <img src="GALAXY.jpg" class="project-bg" alt="Project background illustration">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Neural Communication Protocol Optimizer</h3>
