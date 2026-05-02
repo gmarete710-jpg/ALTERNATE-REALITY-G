@@ -4,6 +4,17 @@
    ============================================ */
 
 // ============================================
+// THEME TOGGLE CONSTANTS
+// ============================================
+const availableThemes = ['dark', 'light', 'cyberpunk', 'solar'];
+const themeLabels = {
+    dark: 'Dark',
+    light: 'Light',
+    cyberpunk: 'Cyberpunk',
+    solar: 'Solar'
+};
+
+// ============================================
 // HAMBURGER MENU
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,11 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // THEME TOGGLE
-    // ============================================
-    initThemeToggle();
-
-    // ============================================
     // HOME PAGE DASHBOARD
     // ============================================
     initHomeDashboard();
@@ -117,6 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
+// THEME TOGGLE (called immediately since script loads after DOM)
+// ============================================
+initThemeToggle();
+
+// ============================================
 // UPDATE ACTIVE NAV LINK BASED ON PAGE
 // ============================================
 function updateActiveNavLink() {
@@ -140,14 +151,6 @@ function updateActiveNavLink() {
 // ============================================
 // THEME TOGGLE
 // ============================================
-const availableThemes = ['dark', 'light', 'cyberpunk', 'solar'];
-const themeLabels = {
-    dark: 'Dark',
-    light: 'Light',
-    cyberpunk: 'Cyberpunk',
-    solar: 'Solar'
-};
-
 function initThemeToggle() {
     const button = document.getElementById('themeToggle');
     if (!button) return;
