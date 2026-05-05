@@ -577,42 +577,71 @@ function formatLargeNumber(value) {
 function initProjectSearch() {
     const searchInput = document.getElementById('projectSearch');
     const filterSelect = document.getElementById('projectFilter');
+    const difficultyFilter = document.getElementById('difficultyFilter');
     const countLabel = document.getElementById('filterCount');
     const resetButton = document.getElementById('resetFilterButton');
+    const viewToggle = document.getElementById('viewToggle');
     const cards = document.querySelectorAll('.project-card');
+    const grid = document.querySelector('.projects-grid');
 
     if (!searchInput || !filterSelect || !countLabel || cards.length === 0) return;
+
+    let isListView = false;
 
     const updateFilter = () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const selectedTopic = filterSelect.value.trim().toLowerCase();
+        const selectedDifficulty = difficultyFilter ? difficultyFilter.value.trim() : '';
         let visibleCount = 0;
 
         cards.forEach(card => {
             const title = card.querySelector('.project-title')?.textContent.toLowerCase() || '';
             const description = card.querySelector('.project-description')?.textContent.toLowerCase() || '';
             const tags = Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+            const difficulty = card.dataset.difficulty || '';
+            
             const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm);
             const matchesTopic = !selectedTopic || tags.includes(selectedTopic);
+            const matchesDifficulty = !selectedDifficulty || difficulty === selectedDifficulty;
 
-            const isVisible = matchesSearch && matchesTopic;
+            const isVisible = matchesSearch && matchesTopic && matchesDifficulty;
             card.style.display = isVisible ? 'flex' : 'none';
             if (isVisible) visibleCount += 1;
         });
 
-        countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} found`;
+        countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'}`;
     };
 
     const resetFilters = () => {
         searchInput.value = '';
         filterSelect.value = '';
+        if (difficultyFilter) difficultyFilter.value = '';
         updateFilter();
+    };
+
+    const toggleView = () => {
+        isListView = !isListView;
+        if (grid) {
+            if (isListView) {
+                grid.style.gridTemplateColumns = '1fr';
+                if (viewToggle) viewToggle.textContent = 'Card View';
+            } else {
+                grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
+                if (viewToggle) viewToggle.textContent = 'Grid View';
+            }
+        }
     };
 
     searchInput.addEventListener('input', updateFilter);
     filterSelect.addEventListener('change', updateFilter);
+    if (difficultyFilter) {
+        difficultyFilter.addEventListener('change', updateFilter);
+    }
     if (resetButton) {
         resetButton.addEventListener('click', resetFilters);
+    }
+    if (viewToggle) {
+        viewToggle.addEventListener('click', toggleView);
     }
     updateFilter();
 }
