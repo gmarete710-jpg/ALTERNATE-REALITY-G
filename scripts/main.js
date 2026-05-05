@@ -97,6 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectSearch();
 
     // ============================================
+    // PROJECTS PAGINATION
+    // ============================================
+    initProjectsPagination();
+
+    // ============================================
     // PROJECT FEATURED SELECTION
     // ============================================
     initProjectsFeatured();
@@ -577,44 +582,190 @@ function formatLargeNumber(value) {
 function initProjectSearch() {
     const searchInput = document.getElementById('projectSearch');
     const filterSelect = document.getElementById('projectFilter');
+    const difficultyFilter = document.getElementById('difficultyFilter');
     const countLabel = document.getElementById('filterCount');
     const resetButton = document.getElementById('resetFilterButton');
+    const viewToggle = document.getElementById('viewToggle');
     const cards = document.querySelectorAll('.project-card');
+    const grid = document.querySelector('.projects-grid');
 
     if (!searchInput || !filterSelect || !countLabel || cards.length === 0) return;
+
+    let isListView = false;
 
     const updateFilter = () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const selectedTopic = filterSelect.value.trim().toLowerCase();
+        const selectedDifficulty = difficultyFilter ? difficultyFilter.value.trim() : '';
         let visibleCount = 0;
 
         cards.forEach(card => {
             const title = card.querySelector('.project-title')?.textContent.toLowerCase() || '';
             const description = card.querySelector('.project-description')?.textContent.toLowerCase() || '';
             const tags = Array.from(card.querySelectorAll('.tech-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+            const difficulty = card.dataset.difficulty || '';
+            
             const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm);
             const matchesTopic = !selectedTopic || tags.includes(selectedTopic);
+            const matchesDifficulty = !selectedDifficulty || difficulty === selectedDifficulty;
 
-            const isVisible = matchesSearch && matchesTopic;
+            const isVisible = matchesSearch && matchesTopic && matchesDifficulty;
             card.style.display = isVisible ? 'flex' : 'none';
             if (isVisible) visibleCount += 1;
         });
 
-        countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} found`;
+        countLabel.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'}`;
+        
+        // Trigger pagination update
+        setTimeout(() => {
+            window.dispatchEvent(new Event('projectsFiltered'));
+        }, 0);
     };
 
     const resetFilters = () => {
         searchInput.value = '';
         filterSelect.value = '';
+        if (difficultyFilter) difficultyFilter.value = '';
         updateFilter();
+    };
+
+    const toggleView = () => {
+        isListView = !isListView;
+        if (grid) {
+            if (isListView) {
+                grid.style.gridTemplateColumns = '1fr';
+                if (viewToggle) viewToggle.textContent = 'Card View';
+            } else {
+                grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
+                if (viewToggle) viewToggle.textContent = 'Grid View';
+            }
+        }
     };
 
     searchInput.addEventListener('input', updateFilter);
     filterSelect.addEventListener('change', updateFilter);
+    if (difficultyFilter) {
+        difficultyFilter.addEventListener('change', updateFilter);
+    }
     if (resetButton) {
         resetButton.addEventListener('click', resetFilters);
     }
+    if (viewToggle) {
+        viewToggle.addEventListener('click', toggleView);
+    }
     updateFilter();
+}
+
+// ============================================
+// PROJECTS PAGINATION
+// ============================================
+function initProjectsPagination() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+    const pageInput = document.getElementById('pageInput');
+    const goButton = document.getElementById('goButton');
+    const currentPageSpan = document.getElementById('currentPage');
+    const totalPagesSpan = document.getElementById('totalPages');
+
+    if (!projectsGrid) return;
+
+    const projectsPerPage = 5;
+    let currentPage = 1;
+
+    const getVisibleCards = () => {
+        return Array.from(projectsGrid.querySelectorAll('.project-card')).filter(
+            card => card.style.display !== 'none'
+        );
+    };
+
+    const updatePagination = () => {
+        const visibleCards = getVisibleCards();
+        const totalPages = Math.ceil(visibleCards.length / projectsPerPage) || 1;
+        
+        // Ensure current page is valid
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+
+        // Update page info
+        if (totalPagesSpan) totalPagesSpan.textContent = totalPages;
+        if (currentPageSpan) currentPageSpan.textContent = currentPage;
+        if (pageInput) {
+            pageInput.max = totalPages;
+            pageInput.value = currentPage;
+        }
+
+        // Update button states
+        if (prevButton) prevButton.disabled = currentPage === 1;
+        if (nextButton) nextButton.disabled = currentPage === totalPages;
+
+        // Calculate which cards to show
+        const startIndex = (currentPage - 1) * projectsPerPage;
+        const endIndex = startIndex + projectsPerPage;
+
+        // Show/hide cards based on current page
+        visibleCards.forEach((card, index) => {
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'flex';
+                card.style.opacity = '0';
+                card.style.animation = 'fadeInUp 0.5s ease forwards';
+                card.style.animationDelay = `${(index - startIndex) * 0.1}s`;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    };
+
+    const goToPage = (page) => {
+        const visibleCards = getVisibleCards();
+        const totalPages = Math.ceil(visibleCards.length / projectsPerPage) || 1;
+        if (page >= 1 && page <= totalPages) {
+            currentPage = page;
+            updatePagination();
+            projectsGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    };
+
+    // Event listeners
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) goToPage(currentPage - 1);
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            const visibleCards = getVisibleCards();
+            const totalPages = Math.ceil(visibleCards.length / projectsPerPage) || 1;
+            if (currentPage < totalPages) goToPage(currentPage + 1);
+        });
+    }
+
+    if (goButton) {
+        goButton.addEventListener('click', () => {
+            const page = parseInt(pageInput.value, 10);
+            goToPage(page);
+        });
+    }
+
+    if (pageInput) {
+        pageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const page = parseInt(pageInput.value, 10);
+                goToPage(page);
+            }
+        });
+    }
+
+    // Listen for filter changes
+    window.addEventListener('projectsFiltered', () => {
+        currentPage = 1;
+        updatePagination();
+    });
+
+    // Initial setup
+    updatePagination();
 }
 
 function initContactPrefill() {

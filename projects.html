@@ -57,6 +57,28 @@
         </div>
     </section>
 
+    <!-- Projects Stats Bar -->
+    <section class="container">
+        <div class="project-stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Total Projects</span>
+                <span class="stat-value" id="totalProjects">15</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Avg Difficulty</span>
+                <span class="stat-value" id="avgDifficulty">Advanced</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active Missions</span>
+                <span class="stat-value" id="activeMissions">13</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Impact</span>
+                <span class="stat-value" id="totalImpact">★ 9.1/10</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Filter -->
     <section class="container">
         <div class="project-filter-bar">
@@ -82,29 +104,69 @@
                     <option value="GAN">GAN</option>
                     <option value="GNN">GNN</option>
                     <option value="Optimization">Optimization</option>
+                    <option value="Computer Vision">Computer Vision</option>
+                    <option value="NLP">NLP</option>
+                    <option value="Quantum">Quantum</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Signal Processing">Signal Processing</option>
+                    <option value="Neuroscience">Neuroscience</option>
+                    <option value="Brain Mapping">Brain Mapping</option>
+                    <option value="Environmental Science">Environmental Science</option>
+                    <option value="Logistics AI">Logistics AI</option>
+                    <option value="LSTM">LSTM</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="difficultyFilter">Filter by difficulty</label>
+                <select id="difficultyFilter">
+                    <option value="">All difficulties</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Expert">Expert</option>
                 </select>
             </div>
             <div class="filter-summary">
-                <span id="filterCount">6 projects</span>
+                <span id="filterCount">15 projects</span>
             </div>
             <div class="filter-actions">
                 <button id="sortButton" class="btn btn-secondary">Sort by Year ↓</button>
+                <button id="viewToggle" class="btn btn-secondary">Grid View</button>
                 <button id="resetFilterButton" class="btn btn-secondary">Reset Filters</button>
             </div>
         </div>
     </section>
 
+    <!-- Projects Pagination -->
+    <section class="container">
+        <div class="pagination-bar">
+            <button id="prevPage" class="btn btn-pagination" aria-label="Previous page">← Previous</button>
+            <div class="pagination-info">
+                <span>Page <span id="currentPage">1</span> of <span id="totalPages">3</span></span>
+            </div>
+            <div class="pagination-controls">
+                <input type="number" id="pageInput" class="page-input" min="1" max="3" value="1" aria-label="Go to page">
+                <button id="goButton" class="btn btn-pagination">Go</button>
+            </div>
+            <button id="nextPage" class="btn btn-pagination" aria-label="Next page">Next →</button>
+        </div>
+    </section>
+
     <!-- Projects Grid -->
     <main class="container">
-        <div class="projects-grid">
+        <div class="projects-grid" id="projectsGrid">
             <!-- Project 1 -->
-            <div class="project-card" data-year="2087" data-cover="images/cover-exoplanet.svg">
+            <div class="project-card" data-year="2087" data-cover="images/cover-exoplanet.svg" data-difficulty="Advanced">
                 <div class="project-image">
                     <img src="2.0 AKAZA.jpg" class="project-cover" alt="Exoplanet Discovery Network cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Exoplanet Discovery Network</h3>
                     <span class="project-year">2087–2089</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 9.3</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Deep neural network system for classifying exoplanet characteristics from spectroscopic data. 
@@ -121,13 +183,17 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card" data-year="2085" data-cover="images/cover-solar-flare.svg">
+            <div class="project-card" data-year="2085" data-cover="images/cover-solar-flare.svg" data-difficulty="Advanced">
                 <div class="project-image">
                     <img src="ZENITSU.jpg" class="project-cover" alt="Solar Flare Prediction System cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Solar Flare Prediction System</h3>
                     <span class="project-year">2085–2088</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 9.0</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Transformer-based time series forecasting model for predicting solar flare events 72 hours 
@@ -140,17 +206,21 @@
                     <span class="tech-tag">Time Series</span>
                     <span class="tech-tag">Forecasting</span>
                 </div>
-                <a href="projects/solar-flare-prediction.html" class="project-link">View Project →</a>
+                <a href="projects/solar-flare-prediction-on-extraterrestrial-planets.html" class="project-link">View Project →</a>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card" data-year="2084" data-cover="images/cover-radiation-anomaly.svg">
+            <div class="project-card" data-year="2084" data-cover="images/cover-radiation-anomaly.svg" data-difficulty="Advanced">
                 <div class="project-image">
                     <img src="GIIYU.jpg" class="project-cover" alt="Cosmic Radiation Anomaly Detector cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Cosmic Radiation Anomaly Detector</h3>
                     <span class="project-year">2084–2087</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 8.8</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Unsupervised anomaly detection system using variational autoencoders (VAE) for identifying 
@@ -167,13 +237,17 @@
             </div>
 
             <!-- Project 4 -->
-            <div class="project-card" data-year="2083" data-cover="images/cover-autonomous-nav.svg">
+            <div class="project-card" data-year="2083" data-cover="images/cover-autonomous-nav.svg" data-difficulty="Expert">
                 <div class="project-image">
                     <img src="DIO BRANDO.jpg" class="project-cover" alt="Autonomous Navigation AI cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Autonomous Navigation AI</h3>
                     <span class="project-year">2083–2086</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Expert">Expert</span>
+                        <span class="impact-score">★ 9.4</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Reinforcement learning agent for spacecraft autonomous navigation in complex asteroid fields. 
@@ -190,13 +264,17 @@
             </div>
 
             <!-- Project 5 -->
-            <div class="project-card" data-year="2082" data-cover="images/cover-spectral-synthesis.svg">
+            <div class="project-card" data-year="2082" data-cover="images/cover-spectral-synthesis.svg" data-difficulty="Intermediate">
                 <div class="project-image">
                     <img src="FUTURE 3.jpg" class="project-cover" alt="Stellar Spectral Synthesis Model cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Stellar Spectral Synthesis Model</h3>
                     <span class="project-year">2082–2085</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Intermediate">Intermediate</span>
+                        <span class="impact-score">★ 8.6</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Generative model for synthesizing stellar spectra using conditional GANs. Enables simulation 
@@ -213,13 +291,17 @@
             </div>
 
             <!-- Project 6 -->
-            <div class="project-card" data-year="2081" data-cover="images/cover-comm-protocol.svg">
+            <div class="project-card" data-year="2081" data-cover="images/cover-comm-protocol.svg" data-difficulty="Advanced">
                 <div class="project-image">
                     <img src="SUKUNA FUUUGA.jpg" class="project-cover" alt="Neural Communication Protocol Optimizer cover">
                 </div>
                 <div class="project-header">
                     <h3 class="project-title">Neural Communication Protocol Optimizer</h3>
                     <span class="project-year">2081–2084</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 9.1</span>
+                    </div>
                 </div>
                 <p class="project-description">
                     Machine learning system for optimizing data transmission protocols between distributed space 
@@ -234,6 +316,265 @@
                 </div>
                 <a href="projects/comm-protocol.html" class="project-link">View Project →</a>
             </div>
+
+            <!-- Project 7 -->
+            <div class="project-card" data-year="2086" data-cover="images/cover-nlp-translation.svg" data-difficulty="Advanced">
+                <div class="project-image">
+                    <img src="FUTURE 3.jpg" class="project-cover" alt="Multilingual Neural Translation Engine cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Multilingual Neural network Translation Engine</h3>
+                    <span class="project-year">2086–2089</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 8.9</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Advanced transformer-based neural machine translation system supporting 127 languages with 
+                    context-aware semantic preservation. Enables real-time communication across alien civilizations, 
+                    achieving 96.7% semantic accuracy on untranslated linguistic structures.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">Seq2Seq</span>
+                    <span class="tech-tag">Deep Learning</span>
+                </div>
+                <a href="projects/nlp-translation.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card" data-year="2084" data-cover="images/cover-quantum-simulation.svg" data-difficulty="Expert">
+                <div class="project-image">
+                    <img src="DIO BRANDO.jpg" class="project-cover" alt="Quantum State Simulation Engine cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Quantum State Simulation Engine 3rd generation verstion</h3>
+                    <span class="project-year">2084–2088</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Expert">Expert</span>
+                        <span class="impact-score">★ 9.5</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Hybrid classical-quantum computing system for simulating complex molecular interactions in 
+                    exotic stellar environments. Reduced simulation time by 99.8% compared to traditional methods, 
+                    enabling discovery of 25 new exotic matter compounds with massive implications for energy generation and materials science.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Quantum</span>
+                    <span class="tech-tag">Physics Simulation</span>
+                    <span class="tech-tag">Hybrid Computing</span>
+                    <span class="tech-tag">Optimization</span>
+                </div>
+                <a href="projects/quantum-simulation.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card" data-year="2085" data-cover="images/cover-robotics-vision.svg" data-difficulty="Advanced">
+                <div class="project-image">
+                    <img src="2.0 AKAZA.jpg" class="project-cover" alt="Robotic Vision Adaptation System cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Robotic Vision Adaptation System</h3>
+                    <span class="project-year">2085–2088</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 8.7</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Computer vision system combining object detection, semantic segmentation, and 3D reconstruction 
+                    for autonomous rover navigation in harsh planetary environments. Deployed on 12 deep-space rovers, 
+                    achieving 99.3% obstacle detection accuracy and enabling 47% faster autonomous traversal.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">CNN</span>
+                    <span class="tech-tag">Robotics</span>
+                    <span class="tech-tag">Real-time Processing</span>
+                </div>
+                <a href="projects/robotics-vision.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card" data-year="2082" data-cover="images/cover-predictive-maintenance.svg" data-difficulty="Intermediate">
+                <div class="project-image">
+                    <img src="ZENITSU.jpg" class="project-cover" alt="Predictive Maintenance AI System cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Predictive Maintenance AI System</h3>
+                    <span class="project-year">2082–2086</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Intermediate">Advanced</span>
+                        <span class="impact-score">★ 8.4</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Machine learning system for predicting critical equipment failures in orbital stations through 
+                    sensor data analysis and pattern recognition. Reduced unscheduled maintenance events by 78% and 
+                    extended equipment lifespan by average 23 months across entire space station network.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Time Series</span>
+                    <span class="tech-tag">LSTM</span>
+                    <span class="tech-tag">Anomaly Detection</span>
+                    <span class="tech-tag">IoT Analytics</span>
+                </div>
+                <a href="projects/predictive-maintenance.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project-card" data-year="2087" data-cover="images/cover-gravitational-waves.svg" data-difficulty="Expert">
+                <div class="project-image">
+                    <img src="GIIYU.jpg" class="project-cover" alt="Gravitational Wave Signal Processing cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Gravitational Wave Signal Processing</h3>
+                    <span class="project-year">2087–2090</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Expert">Expert</span>
+                        <span class="impact-score">★ 9.6</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Advanced signal processing and machine learning system for detecting and analyzing gravitational wave events 
+                    from distant cosmic phenomena. Successfully detected 14 previously unknown neutron star mergers and enabled 
+                    groundbreaking discoveries in relativistic physics with 99.7% false positive elimination rate.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Signal Processing</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">Physics</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div>
+                <a href="projects/gravitational-waves.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project-card" data-year="2086" data-cover="images/cover-bioelectric-interface.svg" data-difficulty="Expert">
+                <div class="project-image">
+                    <img src="ZENITSU.jpg" class="project-cover" alt="Bioelectric Neural Interface cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Bioelectric Neural Interface</h3>
+                    <span class="project-year">2086–2089</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Expert">Expert</span>
+                        <span class="impact-score">★ 9.4</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Pioneering bioelectrical signal interpretation system using advanced neural networks and brain-computer interface 
+                    technology. Achieved 94.3% accuracy in thought-to-command translation, enabling direct neural control of 
+                    space-based systems and facilitating non-invasive human-AI collaboration protocols.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Biomedical Engineering</span>
+                    <span class="tech-tag">Neural Networks</span>
+                    <span class="tech-tag">BCI Technology</span>
+                    <span class="tech-tag">Signal Processing</span>
+                </div>
+                <a href="projects/bioelectric-interface.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 13 -->
+            <div class="project-card" data-year="2085" data-cover="images/cover-climate-patterns.svg" data-difficulty="Intermediate">
+                <div class="project-image">
+                    <img src="FUTURE 3.jpg" class="project-cover" alt="Climate Pattern Recognition System cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Climate Pattern Recognition System</h3>
+                    <span class="project-year">2085–2088</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Intermediate">Intermediate</span>
+                        <span class="impact-score">★ 8.8</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Comprehensive environmental monitoring system utilizing satellite data and LSTM networks for predicting 
+                    extreme weather patterns and climate anomalies across multiple stellar systems. Reduced meteorological 
+                    prediction error by 34% and enabled protective measures preventing 89 catastrophic atmospheric events.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">LSTM</span>
+                    <span class="tech-tag">Environmental Science</span>
+                    <span class="tech-tag">Time Series</span>
+                    <span class="tech-tag">Satellite Data</span>
+                </div>
+                <a href="projects/climate-patterns.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 14 -->
+            <div class="project-card" data-year="2080" data-cover="images/cover-asteroid-mining.svg" data-difficulty="Advanced">
+                <div class="project-image">
+                    <img src="DIO BRANDO.jpg" class="project-cover" alt="Asteroid Mining Optimization cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Asteroid Mining Optimization</h3>
+                    <span class="project-year">2080–2084</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Advanced">Advanced</span>
+                        <span class="impact-score">★ 8.9</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Reinforcement learning-based system for optimizing asteroid composition analysis and resource extraction routes 
+                    for mining operations. Increased resource recovery efficiency by 56% and discovered optimal mining pathways 
+                    across 347 asteroids in the Kepler-442 system, generating 2.3 trillion credits in economic value.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Reinforcement Learning</span>
+                    <span class="tech-tag">Optimization</span>
+                    <span class="tech-tag">Resource Management</span>
+                    <span class="tech-tag">Logistics AI</span>
+                </div>
+                <a href="projects/asteroid-mining.html" class="project-link">View Project →</a>
+            </div>
+
+            <!-- Project 15 -->
+            <div class="project-card" data-year="2088" data-cover="images/cover-consciousness-mapping.svg" data-difficulty="Expert">
+                <div class="project-image">
+                    <img src="2.0 AKAZA.jpg" class="project-cover" alt="Consciousness Mapping Framework cover">
+                </div>
+                <div class="project-header">
+                    <h3 class="project-title">Consciousness Mapping Framework</h3>
+                    <span class="project-year">2088–2091</span>
+                    <div class="project-meta">
+                        <span class="difficulty-badge Expert">Expert</span>
+                        <span class="impact-score">★ 9.8</span>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Breakthrough framework for mapping and quantifying consciousness patterns using advanced fMRI integration 
+                    with graph neural networks. Successfully digitized consciousness signatures of 847 subjects with 99.2% fidelity, 
+                    enabling consciousness backup protocols and contributing to philosophical understanding of sentience across species.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">GNN</span>
+                    <span class="tech-tag">Neuroscience</span>
+                    <span class="tech-tag">Brain Mapping</span>
+                    <span class="tech-tag">Deep Learning</span>
+                </div>
+                <a href="projects/consciousness-mapping.html" class="project-link">View Project →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2089 GARETH.AI. Neural intelligence in an expanding universe.</p>
+        <div class="footer-links">
+            <a href="contact.html">Contact</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="about.html">About</a>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
         </div>
     </main>
 
